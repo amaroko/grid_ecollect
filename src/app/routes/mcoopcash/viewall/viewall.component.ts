@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {environment} from '../../../../environments/environment';
+// import { HttpClient} from '@angular/common/http';
 import {AllModules} from '@ag-grid-enterprise/all-modules';
-import { environment } from '../../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-viewall',
   templateUrl: './viewall.component.html',
@@ -23,10 +24,11 @@ export class ViewallComponent implements OnInit {
   username: string;
   searchText: string;
   model: any = {};
+  pivotPanelShow = true;
 
   modules = AllModules;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.columnDefs = [
       {
         field: 'LOANACCNUMBER',
@@ -34,7 +36,7 @@ export class ViewallComponent implements OnInit {
           if (params.value !== undefined) {
             return '<a  href="#" target="_blank">' + params.value + '</a>';
           } else {
-            return '<img src="assets/img/user/loading.gif">';
+            return ''; // <img src="assets/img/user/loading.gif">
           }
         },
         filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true
@@ -51,7 +53,7 @@ export class ViewallComponent implements OnInit {
           if (params.value !== undefined) {
             return (Math.floor(params.value * 100) / 100).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
           } else {
-            return ''
+            return '';
           }
         },
         filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }, aggFunc: 'sum', resizable: true
@@ -62,7 +64,7 @@ export class ViewallComponent implements OnInit {
           if (params.value !== undefined) {
             return (Math.floor(params.value * 100) / 100).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
           } else {
-            return ''
+            return '';
           }
         },
         filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }, aggFunc: 'sum', resizable: true
@@ -78,9 +80,14 @@ export class ViewallComponent implements OnInit {
       width: 120,
       resizable: true,
       sortable: true,
-      floatingFilter: true
+      floatingFilter: true,
+      unSortIcon: true,
+      suppressResize: false,
+      enableRowGroup: true,
+      enablePivot: true,
+      pivot: true
     };
-    this.rowModelType = "serverSide";
+    this.rowModelType = 'serverSide';
     this.cacheBlockSize = 50;
     this.maxBlocksInCache = 0;
   }
@@ -90,13 +97,14 @@ export class ViewallComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
 
     const datasource = {
+      // tslint:disable-next-line:no-shadowed-variable
       getRows(params) {
         console.log(JSON.stringify(params.request, null, 1));
 
         fetch(environment.nodeapi + '/gridmcoopcashviewall/viewall', {
           method: 'post',
           body: JSON.stringify(params.request),
-          headers: { "Content-Type": "application/json; charset=utf-8" }
+          headers: {'Content-Type': 'application/json; charset=utf-8'}
         })
           .then(httpResponse => httpResponse.json())
           .then(response => {
@@ -105,33 +113,17 @@ export class ViewallComponent implements OnInit {
           .catch(error => {
             console.error(error);
             params.failCallback();
-          })
+          });
       }
     };
 
     params.api.setServerSideDatasource(datasource);
   }
-
-  ServerSideDatasource(server) {
-    return {
-      getRows(params) {
-        setTimeout(function () {
-          var response = server.getResponse(params.request);
-          if (response.success) {
-            params.successCallback(response.rows, response.lastRow);
-          } else {
-            params.failCallback();
-          }
-        }, 500);
-      }
-    };
-  }
-
   currencyFormatter(params) {
     if (params.value !== undefined) {
       return (Math.floor(params.value * 100) / 100).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     } else {
-      return ''
+      return '';
     }
   }
 
@@ -146,5 +138,6 @@ export class ViewallComponent implements OnInit {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.username = currentUser.USERNAME;
   }
+
 
 }

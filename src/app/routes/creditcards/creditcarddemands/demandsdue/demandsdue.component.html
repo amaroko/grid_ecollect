@@ -2,7 +2,7 @@
   <div>Credit cards
     <small>Demand letters not send either manual or automatically</small></div>
 </div>
-<!-- START card (keyup)="onQuickFilterChanged($event)"-->
+
 <div class="card card-default">
   <div class="col-xl-12">
     <div class="page-header">
@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-outline-inverse" (click)="onSearch()" [disabled]="!searchForm.valid || !searchForm.dirty"><span
                 class="fa fa-search"></span>
               Search</button>
-            
+
           </div>
           <div class="col-xl-4 col-lg-6 form-inline">
             <button class="mr-1 mb-1 btn btn-outline-green" type="button" (click)="reset()"><span

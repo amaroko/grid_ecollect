@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import * as $ from 'jquery';
-import { EcolService } from '../../../services/ecol.service';
-import { GridOptions, IDatasource, IGetRowsParams, GridApi } from '@ag-grid-community/all-modules';
+import {Component, OnInit} from '@angular/core';
+import {environment} from '../../../../environments/environment';
+// import { HttpClient} from '@angular/common/http';
+import {AllModules} from '@ag-grid-enterprise/all-modules';
 
 @Component({
   selector: 'app-zerobalance',
@@ -11,111 +9,125 @@ import { GridOptions, IDatasource, IGetRowsParams, GridApi } from '@ag-grid-comm
   styleUrls: ['./zerobalance.component.scss']
 })
 export class ZerobalanceComponent implements OnInit {
+  public gridApi;
+  public gridColumnApi;
 
-  public overlayLoadingTemplate;
-  public overlayNoRowsTemplate;
-
-  constructor(private ecolService: EcolService, private http: HttpClient) {
-    this.gridOptions = <GridOptions>{
-      headerHeight: 40,
-      pagination: true,
-      rowSelection: 'single',
-      rowModelType: 'infinite',
-      cacheBlockSize: 20,
-      paginationPageSize: 20
-    };
-
-    this.overlayLoadingTemplate =
-      // tslint:disable-next-line:max-line-length
-      '<span class="ag-overlay-loading-center" style="padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;">Please wait while your rows are loading</span>';
-    this.overlayNoRowsTemplate =
-      '<span style="padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;">This is a custom \'no rows\' overlay</span>';
-  }
-
+  public columnDefs;
+  public defaultColDef;
+  public rowModelType;
+  public cacheBlockSize;
+  public maxBlocksInCache;
+  public rowData: [];
 
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-  resizeEvent = 'resize.ag-grid';
-  $win = $(window);
-  new = true;
   username: string;
   searchText: string;
   model: any = {};
-  noTotal: number;
+  pivotPanelShow = true;
 
-  gridOptions: GridOptions;
-  gridApi: GridApi;
-  // private rowClassRules;
+  modules = AllModules;
 
-  columnDefs = [
-    {
-      headerName: 'CARDACCT',
-      field: 'CARDACCT',
-      cellRenderer: function (params) {
-        if(params.value !== undefined) {
-          return '<a  href="#" target="_blank">' + params.value + '</a>';
-        } else {
-          return '<img src="assets/img/user/loading.gif">';
-        }
+  constructor() {
+    this.columnDefs = [
+      {
+        headerName: 'CARDACCT',
+        field: 'CARDACCT',
+        cellRenderer: function (params) {
+          if (params.value !== undefined) {
+            return '<a  href="#" target="_blank">' + params.value + '</a>';
+          } else {
+            return ''; // <img src="assets/img/user/loading.gif" alt="Loading Icon">
+          }
+        },
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true
       },
+      {
+        headerName: 'CARDNUMBER',
+        field: 'CARDNUMBER',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'CARDNAME',
+        field: 'CARDNAME',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'DATEDISBURSED',
+        field: 'DATEDISBURSED',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'LIMIT',
+        field: 'LIMIT',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'EXPPMNT',
+        field: 'EXPPMNT',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'OUTBALANCE',
+        field: 'OUTBALANCE',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'CYCLE',
+        field: 'CYCLE',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      }
+    ];
+    this.defaultColDef = {
+      width: 120,
       resizable: true,
-    },
-    {
-      headerName: 'CARDNUMBER',
-      field: 'CARDNUMBER',
-      resizable: true,
-      filter: true
-    },
-    {
-      headerName: 'CARDNAME',
-      field: 'CARDNAME',
-      resizable: true,
-      filter: true
-    },
-    {
-      headerName: 'DATEDISBURSED',
-      field: 'DATEDISBURSED',
-      resizable: true,
-      filter: true
-    },
-    {
-      headerName: 'LIMIT',
-      field: 'LIMIT',
-      resizable: true,
-      filter: true
-    },
-    {
-      headerName: 'EXPPMNT',
-      field: 'EXPPMNT',
-      resizable: true,
-    },
-    {
-      headerName: 'OUTBALANCE',
-      field: 'OUTBALANCE',
-      resizable: true,
-    },
-    {
-      headerName: 'CYCLE',
-      field: 'CYCLE',
-      resizable: true,
-    }
-  ];
-  rowData1: any;
+      sortable: true,
+      floatingFilter: true,
+      unSortIcon: true,
+      suppressResize: false,
+      enableRowGroup: true,
+      enablePivot: true,
+      pivot: true
+    };
+    this.rowModelType = 'serverSide';
+    this.cacheBlockSize = 50;
+    this.maxBlocksInCache = 0;
+  }
 
-  dataSource: IDatasource = {
-    getRows: (params: IGetRowsParams) => {
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
 
-      // Use startRow and endRow for sending pagination to Backend
-      // params.startRow : Start Page
-      // params.endRow : End Page
-      //
-      this.apiService(20, params.startRow).subscribe(response => {
-        params.successCallback(
-          response, this.noTotal
-        );
-      });
+    const datasource = {
+      // tslint:disable-next-line:no-shadowed-variable
+      getRows(params) {
+        console.log(JSON.stringify(params.request, null, 1));
+
+        fetch(environment.nodeapi + '/gridcreditcardszerobal/viewall', {
+          method: 'post',
+          body: JSON.stringify(params.request),
+          headers: {'Content-Type': 'application/json; charset=utf-8'}
+        })
+          .then(httpResponse => httpResponse.json())
+          .then(response => {
+            params.successCallback(response.rows, response.lastRow);
+          })
+          .catch(error => {
+            console.error(error);
+            params.failCallback();
+          });
+      }
+    };
+
+    params.api.setServerSideDatasource(datasource);
+  }
+
+  currencyFormatter(params) {
+    if (params.value !== undefined) {
+      return (Math.floor(params.value * 100) / 100).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    } else {
+      return '';
     }
-  };
+  }
 
   onRowDoubleClicked(event: any) {
     this.model = event.node.data;
@@ -123,55 +135,11 @@ export class ZerobalanceComponent implements OnInit {
     window.open(environment.applink + '/activitylog?accnumber=' + this.model.CARDACCT + '&custnumber=' + this.model.CARDACCT + '&username=' + this.username + '&sys=watchcc', '_blank');
   }
 
-  onQuickFilterChanged($event) {
-    // this.gridOptions.api.setQuickFilter($event.target.value);
-    this.searchText = $event.target.value;
-  }
-
-  onSearch() {
-    if (this.model.searchText === undefined) {
-      return;
-    }
-    this.clear();
-    this.http.get<any>(environment.api + '/api/tcards/search?searchtext=' + this.model.searchText).subscribe(resp => {
-      //
-      this.gridApi.updateRowData({ add: resp, addIndex: 0 });
-    });
-  }
-
-  clear() {
-    const ds = {
-      getRows(params: any) {
-        params.successCallback([], 0);
-      }
-    };
-    this.gridOptions.api.setDatasource(ds);
-  }
-
-  reset() {
-    // location.reload();
-    this.clear();
-    this.gridApi.sizeColumnsToFit();
-    this.gridApi.setDatasource(this.dataSource);
-  }
 
   public ngOnInit(): void {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.username = currentUser.USERNAME;
-
-    this.ecolService.totalcardsclosed().subscribe(data => {
-      this.noTotal = data[0].TOTALCLOSED;
-    });
   }
 
-  gridReady(params) {
-    this.gridApi = params.api;
-    this.gridApi.sizeColumnsToFit();
-    this.gridApi.setDatasource(this.dataSource);
-  }
-
-  apiService(perPage, currentPos) {
-    return this.http.get<any>(environment.api + '/api/tcards/closed?filter[limit]=' + perPage + '&filter[skip]=' + currentPos);
-  }
 
 }

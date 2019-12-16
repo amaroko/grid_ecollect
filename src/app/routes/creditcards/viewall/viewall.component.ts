@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { environment } from '../../../../environments/environment';
-import { HttpClient} from '@angular/common/http';
+import {environment} from '../../../../environments/environment';
+// import { HttpClient} from '@angular/common/http';
 import {AllModules} from '@ag-grid-enterprise/all-modules';
-import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
-import '@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css';
 
 @Component({
   selector: 'app-viewall',
@@ -14,8 +12,6 @@ import '@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css';
 export class ViewallComponent implements OnInit {
   public gridApi;
   public gridColumnApi;
-  public overlayLoadingTemplate;
-  public overlayNoRowsTemplate;
 
   public columnDefs;
   public defaultColDef;
@@ -29,20 +25,26 @@ export class ViewallComponent implements OnInit {
   searchText: string;
   model: any = {};
   pivotPanelShow = true;
+
   modules = AllModules;
 
-  constructor(public http: HttpClient) {
+  constructor() {
     this.columnDefs = [
 
       {
         headerName: 'CARDACCT',
         field: 'CARDACCT',
         cellRenderer: function (params) {
-          return '<a  href="#" target="_blank">' + params.value + '</a>';
+          if (params.value !== undefined) {
+            return '<a  href="#" target="_blank">' + params.value + '</a>';
+          } else {
+            return ''; // <img src="assets/img/user/loading.gif" alt="Loading Icon">
+          }
         },
-
-        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true
+        // checkboxSelection: true
       },
+
       {
         headerName: 'CARDNUMBER',
         field: 'CARDNUMBER',
@@ -59,31 +61,31 @@ export class ViewallComponent implements OnInit {
         headerName: 'DAYSINARREARS',
         field: 'DAYSINARREARS',
 
-        filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}
       },
       {
         headerName: 'EXPPMNT',
         field: 'EXPPMNT',
 
-        filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}
       },
       {
         headerName: 'OUTSTANDING BALANCE',
         field: 'OUTBALANCE',
 
-        filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}
       },
       {
         headerName: 'LIMIT',
         field: 'LIMIT',
 
-        filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}
       },
       {
         headerName: 'CYCLE',
         field: 'CYCLE',
 
-        filter: 'agNumberColumnFilter', filterParams: { newRowsAction: 'keep' }
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}
       },
       {
         headerName: 'COLOFFICER',
@@ -97,24 +99,21 @@ export class ViewallComponent implements OnInit {
       width: 120,
       resizable: true,
       sortable: true,
-      floatingFilter: true
+      floatingFilter: true,
+      unSortIcon: true,
+      suppressResize: false,
+      enableRowGroup: true,
+      enablePivot: true,
+      pivot: true
     };
     this.rowModelType = 'serverSide';
     this.cacheBlockSize = 50;
     this.maxBlocksInCache = 0;
-   //
-
-    this.overlayLoadingTemplate =
-      // tslint:disable-next-line:max-line-length
-      '<span class="ag-overlay-loading-center" style="padding: 10px; border: 1px solid #444; background: blue;">Please wait while your rows are loading</span>';
-    this.overlayNoRowsTemplate =
-      '<span style="padding: 10px; border: 1px solid #444; background: blue;">There are \'no rows\' </span>';
   }
 
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.gridApi.sizeColumnsToFit();
 
     const datasource = {
       // tslint:disable-next-line:no-shadowed-variable
@@ -160,5 +159,5 @@ export class ViewallComponent implements OnInit {
     this.username = currentUser.USERNAME;
   }
 
-}
 
+}

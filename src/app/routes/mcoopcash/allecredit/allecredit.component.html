@@ -1,10 +1,26 @@
 <div class="content-heading">
-    <div>E-Credit
-      <small>view all E-Credit</small></div>
+  <div>E-Credit
+    <small>view all E-Credit</small></div>
 </div>
-<ag-grid-angular #agGrid style="width: 100%; height: 700px;" id="myGrid" class="ag-theme-balham"
-[columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowModelType]="rowModelType"
-[maxBlocksInCache]="maxBlocksInCache" [animateRows]="true"
-[floatingFilter]="true" [rowData]="rowData" [pagination]="true" [enableSorting]="true" [enableFilter]="true"
-[enableColResize]="true" [paginationAutoPageSize]="true" (rowClicked)='onRowDoubleClicked($event)'
-(gridReady)="onGridReady($event)"></ag-grid-angular> 
+<ag-grid-angular
+  #agGrid
+  (gridReady)="onGridReady($event)"
+  (rowClicked)='onRowDoubleClicked($event)'
+  [animateRows]="true"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [enableRangeSelection]="true"
+  [floatingFilter]="true"
+  [maxBlocksInCache]="maxBlocksInCache"
+  [modules]="modules"
+  [paginationAutoPageSize]="true"
+  [pagination]="true"
+  [pivotPanelShow]="pivotPanelShow"
+  [rowData]="rowData"
+  [rowDragManaged]="true"
+  [rowModelType]="rowModelType"
+  [sideBar]="true"
+  class="ag-theme-balham"
+  id="myGrid"
+  style="width: 100%; height: 550px;"
+></ag-grid-angular>

@@ -34,11 +34,12 @@
 
   <!-- START card-->
 
-      <ag-grid-angular #agGrid id="myGrid" class="ag-theme-balham"  style="width: 100%; height: 550px;" [columnDefs]="columnDefs"
-                       [defaultColDef]="defaultColDef"
-                       [gridOptions]="gridOptions"   [pagination]="true" [floatingFilter]="true" [rowData]="rowData"
+      <ag-grid-angular #agGrid id="myGrid" class="ag-theme-balham" style="width: 100%; height: 550px;"
+                       [columnDefs]="columnDefs"
+                       [defaultColDef]="defaultColDef" [paginationAutoPageSize]="true"
+                       [gridOptions]="gridOptions" [pagination]="true" [floatingFilter]="true" [rowData]="rowData"
                        [modules]="modules" [pivotPanelShow]="pivotPanelShow" [sideBar]="true"
-                       [animateRows]="true" (rowClicked)='onRowDoubleClicked($event)' >
+                       [animateRows]="true" (rowClicked)='onRowDoubleClicked($event)'>
 
       </ag-grid-angular>
 

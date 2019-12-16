@@ -1,42 +1,15 @@
-
 <div class="content-heading">
-    <div>Credit cards
-      <small>My allocations</small></div>
-  </div>
-  <!-- START card-->
-  <div class="card card-default">
-    <div class="col-xl-12">
-      <div class="page-header">
-        <form #searchForm="ngForm" class="form-horizontal">
-          <div class="row">
-            <div class="col-xl-4 col-lg-6 form-inline">
-              <input class="mb form-control" placeholder="Search..." type="text" [(ngModel)]="model.searchText" name="searchText" #searchText="ngModel" minlength="4" required/>
-              <button type="button" class="btn btn-outline-inverse" (click)="onSearch()" [disabled]="!searchForm.valid || !searchForm.dirty"><span
-                  class="fa fa-search"></span>
-                Search</button>
-              
-            </div>
-            <div class="col-xl-4 col-lg-6 form-inline">
-              <button class="mr-1 mb-1 btn btn-outline-green" type="button" (click)="reset()"><span
-                  class="fa fa-search"></span> Reset</button>
-            </div>
-          </div>
-          <p *ngIf="searchText.errors?.minlength">minimum of four(4) search characters is required</p>
-        </form>
-      </div>
-      <ag-grid-angular 
-        #agGrid class="ag-angle"
-        style="width: 100%; height: 600px;"
-        [gridOptions]="gridOptions"
-        (gridReady)="gridReady($event)"
-        [columnDefs]="columnDefs"
-        enableSorting="true"
-        enableFilter="true"
-        enableColResize="true"
-        [overlayLoadingTemplate]="overlayLoadingTemplate"
-        [overlayNoRowsTemplate]="overlayNoRowsTemplate"
-        (rowClicked)='onRowDoubleClicked($event)'>
-      </ag-grid-angular>
-    </div>
-  </div>
-  
+  <div>Credit cards
+    <small>My allocations</small></div>
+</div>
+<!-- START card-->
+
+<ag-grid-angular #agGrid (rowClicked)='onRowDoubleClicked($event)' [animateRows]="true" [columnDefs]="columnDefs"
+                 [defaultColDef]="defaultColDef"
+                 [floatingFilter]="true"
+                 [gridOptions]="gridOptions" [modules]="modules" [pagination]="true" [pivotPanelShow]="pivotPanelShow"
+                 [rowData]="rowData" [sideBar]="true" class="ag-theme-balham"
+                 id="myGrid" style="width: 100%; height: 550px;">
+
+</ag-grid-angular>
+

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { environment } from '../../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {environment} from '../../../../environments/environment';
+// import { HttpClient} from '@angular/common/http';
+import {AllModules} from '@ag-grid-enterprise/all-modules';
 
 @Component({
   selector: 'app-allecredit',
@@ -23,8 +24,11 @@ export class AllecreditComponent implements OnInit {
   username: string;
   searchText: string;
   model: any = {};
+  pivotPanelShow = true;
 
-  constructor(private http: HttpClient) {
+  modules = AllModules;
+
+  constructor() {
     this.columnDefs = [
       {
         field: 'LOANACCNUMBER',
@@ -32,7 +36,7 @@ export class AllecreditComponent implements OnInit {
           if (params.value !== undefined) {
             return '<a  href="#" target="_blank">' + params.value + '</a>';
           } else {
-            return '<img src="assets/img/user/loading.gif">';
+            return ''; // <img src="assets/img/user/loading.gif">
           }
         },
         filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true
@@ -76,7 +80,12 @@ export class AllecreditComponent implements OnInit {
       width: 120,
       resizable: true,
       sortable: true,
-      floatingFilter: true
+      floatingFilter: true,
+      unSortIcon: true,
+      suppressResize: false,
+      enableRowGroup: true,
+      enablePivot: true,
+      pivot: true
     };
     this.rowModelType = 'serverSide';
     this.cacheBlockSize = 50;
@@ -110,23 +119,6 @@ export class AllecreditComponent implements OnInit {
 
     params.api.setServerSideDatasource(datasource);
   }
-
-  ServerSideDatasource(server) {
-    return {
-      getRows(params) {
-        setTimeout(function () {
-          // tslint:disable-next-line:prefer-const
-          let response = server.getResponse(params.request);
-          if (response.success) {
-            params.successCallback(response.rows, response.lastRow);
-          } else {
-            params.failCallback();
-          }
-        }, 500);
-      }
-    };
-  }
-
   currencyFormatter(params) {
     if (params.value !== undefined) {
       return (Math.floor(params.value * 100) / 100).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
@@ -147,5 +139,5 @@ export class AllecreditComponent implements OnInit {
     this.username = currentUser.USERNAME;
   }
 
-}
 
+}

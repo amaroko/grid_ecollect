@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="" />
+    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/allcards/allcards.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/allcards/allcards.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/allcards/allcards.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/allcards/allcards.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/creditcarddemands/demandsdue/demandsdue.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/creditcarddemands/demandsdue/demandsdue.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/myallocations/myallocations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/myallocations/myallocations.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/myallocations/myallocations.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/myallocations/myallocations.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/myworklist/myworklist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/myworklist/myworklist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/myworklist/myworklist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/myworklist/myworklist.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/viewall/viewall.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/viewall/viewall.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/viewall/viewall.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/viewall/viewall.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/zerobalance/zerobalance.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/zerobalance/zerobalance.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/creditcards/zerobalance/zerobalance.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/creditcards/zerobalance/zerobalance.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/mcoopcash/allecredit/allecredit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/mcoopcash/allecredit/allecredit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/mcoopcash/allecredit/allecredit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/mcoopcash/allecredit/allecredit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/mcoopcash/viewall/viewall.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/mcoopcash/viewall/viewall.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/mcoopcash/viewall/viewall.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/mcoopcash/viewall/viewall.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/watch/creditbuildup/creditbuildup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/watch/creditbuildup/creditbuildup.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/watch/nocredit/nocredit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/watch/nocredit/nocredit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/work/allloans/allloans.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/allloans/allloans.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/work/ptps/ptps.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/ptps/ptps.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/work/viewall/viewall.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/viewall/viewall.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/work/withfunds/withfunds.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/withfunds/withfunds.component.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +39,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1UsX9j7Z8WhWTrWzucP0hVlWffF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -92,6 +121,9 @@
       <workItem from="1576168029297" duration="3545000" />
       <workItem from="1576178646507" duration="48260000" />
       <workItem from="1576404826968" duration="15676000" />
+      <workItem from="1576491713361" duration="113000" />
+      <workItem from="1576491881243" duration="6357000" />
+      <workItem from="1576503786920" duration="2762000" />
     </task>
     <servers />
   </component>
@@ -103,6 +135,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1576230312831" />
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1576506723965">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1576506723965" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1576234545238">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

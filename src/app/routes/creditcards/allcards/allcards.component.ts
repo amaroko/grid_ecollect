@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {GridOptions, IDatasource, IGetRowsParams, ColDef} from '@ag-grid-community/all-modules';
-import { environment } from '../../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { EcolService } from '../../../services/ecol.service';
+import {environment} from '../../../../environments/environment';
+// import { HttpClient} from '@angular/common/http';
 import {AllModules} from '@ag-grid-enterprise/all-modules';
 
 @Component({
@@ -11,187 +9,144 @@ import {AllModules} from '@ag-grid-enterprise/all-modules';
   styleUrls: ['./allcards.component.scss']
 })
 export class AllcardsComponent implements OnInit {
-
-  // dataSource: IDatasource = {
-  //   getRows: (params: IGetRowsParams) => {
-  //     this.apiService().subscribe(data => {
-
-  //       params.successCallback(data, 1000
-  //       );
-  //     })
-  //   }
-  // }
-
-  public gridOptions: GridOptions;
-
   public gridApi;
   public gridColumnApi;
+
   public columnDefs;
-  public sortingOrder;
-    model: any = {};
-    username: string;
-    public searchValue;
+  public defaultColDef;
+  public rowModelType;
+  public cacheBlockSize;
+  public maxBlocksInCache;
+  public rowData: [];
 
-    modules = AllModules;
+  currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  username: string;
+  searchText: string;
+  model: any = {};
+  pivotPanelShow = true;
 
-    constructor(public http: HttpClient) {
-        this.gridOptions = <GridOptions>{
+  modules = AllModules;
 
-          unSortIcon: true,
-      // suppressCellSelection: true,
+  constructor() {
+    this.columnDefs = [
 
-      enableColResize: true,
-      domLayout: 'autoHeight',
-      rowSelection: 'single',
-      rowModelType: 'normal',
-      // rowModelType: 'infinite',
-
-      pagination: true,
-      paginationPageSize: 20,
-      onGridReady: (params) => {
-        params.api.sizeColumnsToFit();
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-        // this.gridApi.setDatasource(this.dataSource);
-        this.http
-        .get(environment.nodeapi + '/cards_watch_stage/raw')
-        .subscribe(resp => {
-          params.api.setRowData(<any> resp);
-        });
-
+      {
+        headerName: 'CARDACCT',
+        field: 'CARDACCT',
+        cellRenderer: function (params) {
+          if (params.value !== undefined) {
+            return '<a  href="#" target="_blank">' + params.value + '</a>';
+          } else {
+            return ''; // to remove the loading <img src="assets/img/user/loading.gif" alt="Loading Icon">
+          }
+        },
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true
       },
-      onGridSizeChanged: (params) => {
-        params.api.sizeColumnsToFit();
-      }
-        };
-        this.gridOptions.columnDefs = [
+      {
+        headerName: 'CARDNUMBER',
+        field: 'CARDNUMBER',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'CARDNAME',
+        field: 'CARDNAME',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'DAYSINARREARS',
+        field: 'DAYSINARREARS',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'EXPPMNT',
+        field: 'EXPPMNT',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'OUTSTANDING BALANCE',
+        field: 'OUTBALANCE',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'LIMIT',
+        field: 'LIMIT',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'CYCLE',
+        field: 'CYCLE',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
+      {
+        headerName: 'COLOFFICER',
+        field: 'COLOFFICER',
+        filter: 'agTextColumnFilter', filterParams: {newRowsAction: 'keep'}, resizable: true,
+      },
 
-          {
-            headerName: 'CARDACCT',
-            field: 'CARDACCT',
-            cellRenderer: function (params) {
-              if (params.value !== undefined) {
-                return '<a  href="#" target="_blank">' + params.value + '</a>';
-              } else {
-                return '<img src="assets/img/user/loading.gif">';
-              }
-            },
-            width: 90,
-          },
-          {
-            headerName: 'CARDNUMBER',
-            field: 'CARDNUMBER',
-            width: 90,
-          },
-          {
-            headerName: 'CARDNAME',
-            field: 'CARDNAME',
-            width: 90,
-          },
-          {
-            headerName: 'DAYSINARREARS',
-            field: 'DAYSINARREARS',
-            width: 90,
-          },
-          {
-            headerName: 'EXPPMNT',
-            field: 'EXPPMNT',
-            width: 90,
-          },
-          {
-            headerName: 'OUTSTANDING BALANCE',
-            field: 'OUTBALANCE',
-            width: 90,
-          },
-          {
-            headerName: 'LIMIT',
-            field: 'LIMIT',
-            width: 90,
-          },
-          {
-            headerName: 'CYCLE',
-            field: 'CYCLE',
-            width: 90,
-          },
-          {
-            headerName: 'COLOFFICER',
-            field: 'COLOFFICER',
-            width: 90,
-          },
+    ];
+    this.defaultColDef = {
+      width: 120,
+      resizable: true,
+      sortable: true,
+      floatingFilter: true,
+      unSortIcon: true,
+      suppressResize: false,
+      enableRowGroup: true,
+      enablePivot: true,
+      pivot: true
+    };
+    this.rowModelType = 'serverSide';
+    this.cacheBlockSize = 50;
+    this.maxBlocksInCache = 0;
+  }
 
-        ];
-        this.sortingOrder = ['desc', 'asc', null ];
-    }
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
 
-    /*dataSource: IDatasource = {
-      getRows: (params: IGetRowsParams) => {
-        // Use startRow and endRow for sending pagination to Backend
-        // params.startRow : Start Page
-        // params.endRow : End Page
-        //
-        this.apiService(20, params.startRow).subscribe(response => {
-          params.successCallback(
-            response.data, response.totalRecords
-          );
-        });
-      }
-    };*/
-    public ngOnInit(): void {
-      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      this.username = currentUser.USERNAME;
-    }
+    const datasource = {
+      // tslint:disable-next-line:no-shadowed-variable
+      getRows(params) {
+        console.log(JSON.stringify(params.request, null, 1));
 
-    onRowDoubleClicked(event: any) {
-      this.model = event.node.data;
-      // tslint:disable-next-line:max-line-length
-      window.open(environment.applink + '/activitylog?accnumber=' + this.model.CARDACCT + '&custnumber=' + this.model.CARDACCT + '&username=' + this.username + '&sys=watchcc', '_blank');
-    }
-
-    /*onSearch() {
-      if (this.model.searchText === undefined) {
-        return;
-      }
-      this.clear();
-      this.gridApi.showLoadingOverlay();
-      this.dataSource = {
-        getRows: (params: IGetRowsParams) => {
-          this.apiServiceSearch(20, params.startRow).subscribe(response => {
-            params.successCallback(
-              response.data, response.totalRecords
-            );
-            this.gridOptions.api.hideOverlay();
+        fetch(environment.nodeapi + '/gridcreditcardsviewallcards/viewall', {
+          method: 'post',
+          body: JSON.stringify(params.request),
+          headers: {'Content-Type': 'application/json; charset=utf-8'}
+        })
+          .then(httpResponse => httpResponse.json())
+          .then(response => {
+            params.successCallback(response.rows, response.lastRow);
+          })
+          .catch(error => {
+            console.error(error);
+            params.failCallback();
           });
-        }
-      };
+      }
+    };
 
-      this.gridApi.setDatasource(this.dataSource);
-    }*/
+    params.api.setServerSideDatasource(datasource);
+  }
 
-    clear() {
-      const ds = {
-        getRows(params: any) {
-          params.successCallback([], 0);
-        }
-      };
-      this.gridOptions.api.setDatasource(ds);
+  currencyFormatter(params) {
+    if (params.value !== undefined) {
+      return (Math.floor(params.value * 100) / 100).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    } else {
+      return '';
     }
+  }
 
-    apiService(perPage, currentPos) {
-      // tslint:disable-next-line:max-line-length
-      return this.http.get<any>(environment.nodeapi + '/tcards/all?rows=' + perPage + '&offset=' + currentPos);
-    }
+  onRowDoubleClicked(event: any) {
+    this.model = event.node.data;
+    // tslint:disable-next-line:max-line-length
+    window.open(environment.applink + '/activitylog?accnumber=' + this.model.CARDACCT + '&custnumber=' + this.model.CARDACCT + '&username=' + this.username + '&sys=watchcc', '_blank');
+  }
 
-    apiServiceSearch(perPage, currentPos) {
-      // tslint:disable-next-line:max-line-length
-      return this.http.get<any>(environment.nodeapi + '/tcards/all_search?searchtext=' + this.model.searchText + '&rows=' + perPage + '&offset=' + currentPos);
-    }
 
-    getSelectedRows(event) {
-      //
-    }
+  public ngOnInit(): void {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.username = currentUser.USERNAME;
+  }
 
-    quickSearch() {
-      this.gridApi.setQuickFilter(this.searchValue);
-    }
 
 }

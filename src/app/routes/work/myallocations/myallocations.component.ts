@@ -152,21 +152,6 @@ export class MyallocationsComponent implements OnInit {
     };
   }
 
-  /*dataSource: IDatasource = {
-    getRows: (params: IGetRowsParams) => {
-      // Use startRow and endRow for sending pagination to Backend
-      // params.startRow : Start Page
-      // params.endRow : End Page
-      //
-      this.apiService(20, params.startRow).subscribe(response => {
-        params.successCallback(
-          response.data, response.totalRecords
-        );
-      });
-    }
-  };*/
-
-
 
   public ngOnInit(): void {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
