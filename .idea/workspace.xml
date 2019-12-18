@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <workItem from="1576491713361" duration="113000" />
       <workItem from="1576491881243" duration="6357000" />
       <workItem from="1576503786920" duration="3469000" />
-      <workItem from="1576651283948" duration="3299000" />
+      <workItem from="1576651283948" duration="4021000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -118,26 +115,33 @@
       <option name="project" value="LOCAL" />
       <updated>1576506852778</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="loans,ecredit,cards grids changed">
+      <created>1576657613472</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576657613472</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="loans,ecredit,cards grids changed" />
     <option name="LAST_COMMIT_MESSAGE" value="loans,ecredit,cards grids changed" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1576230312831">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1576230312831" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1576657576674">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1576657609917">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1576657576674" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1576657609917" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1576234545238">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -162,6 +166,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1576234559723" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1576657624831">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1576657624831" />
     <state x="380" y="0" width="606" height="738" key="find.popup" timestamp="1576405625100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
