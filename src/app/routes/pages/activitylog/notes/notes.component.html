@@ -18,11 +18,16 @@
   </div>
 
   <div class="form-check form-check-inline">
-    <input class="form-check-input" id="inlineRadio2" type="radio" [(ngModel)]="model.noteselector" name="noteselector"
+    <input class="form-check-input" id="inlineRadio3" type="radio" [(ngModel)]="model.noteselector" name="noteselector"
       value="flagged" (click)="handleChange('flagged')" />
-    <label class="form-check-label" for="inlineRadio2">Flagged important <span
+    <label class="form-check-label" for="inlineRadio3">Flagged important <span
         class="badge badge-danger float-right">{{flaggedlength}}</span></label>
   </div>
+// am working on this
+<!--  <button  [(ngModel)]="model.noteselector" name="noteselector"-->
+<!--           value="collector"  (click)="handleChange('collector')"-->
+<!--          class=" btn-sample btn-outline btn btn-block">Collector made<span-->
+<!--    class="badge badge-danger float-right">{{noteslength}}</span></button>-->
 </div>
 
 <div *ngIf="isSelected('collector')">
@@ -55,7 +60,7 @@
       </p>
     </li>
   </ul>
-  
+
   <button *ngIf="!pager.reachedend" class="mr-1 btn btn-primary btn-xs" (click)="loadmore($event)">load more
     notes...</button>
   <button *ngIf="pager.reachedend" disabled="" class="mr-1 btn btn-danger btn-xs"> No Notes Available</button>

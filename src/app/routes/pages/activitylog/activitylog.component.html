@@ -39,7 +39,7 @@
   </div>
   <div class="row" style="background-color:red">
       <div style="padding-left: 10px; color: white">
-          <p style="margin-left: 10px">Current Account Plan: {{plan}}</p> 
+          <p style="margin-left: 10px">Current Account Plan: {{plan}}</p>
       </div>
   </div>
   <div class="row">
@@ -50,10 +50,7 @@
         <button [routerLink]="['./activityhome']" [routerLinkActive]="['active']"
           [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}"
           queryParamsHandling="merge" class="btn-sample btn-outline btn btn-block">Client Home</button>
-        <button [routerLink]="['./notes']" [routerLinkActive]="['active']"
-          [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}"
-          queryParamsHandling="merge" class=" btn-sample btn-outline btn btn-block">Notes History<span
-            class="badge badge-danger float-right">{{notes}}</span></button>
+        c
 
         <button [routerLink]="['./activityaction']" [routerLinkActive]="['active']"
           [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}"
@@ -149,7 +146,7 @@
               class="badge badge-success float-right">{{totalcontacts}}</span>
             </a>
           </li>
-          <li *ngIf="collateralmenu"> 
+          <li *ngIf="collateralmenu">
             <a [routerLink]="['./remedialcollaterals']" [routerLinkActive]="['active']"
               [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}">
               <span class="fa fa-angle-double-right text-primary"></span>Remedial collaterals &nbsp;<span

@@ -163,8 +163,8 @@ export class HeaderComponent implements OnInit {
             imageUrl: 'assets/img/user/coop.jpg',
             text: 'You want to logout!',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#7ac142',
+            cancelButtonColor: '#00543d',
             confirmButtonText: 'Yes, Logout!'
         }).then((result) => {
             if (result.value) {

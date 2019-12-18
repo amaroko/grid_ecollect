@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="InteligenInfosys" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UsX9j7Z8WhWTrWzucP0hVlWffF" />
@@ -101,6 +109,7 @@
       <workItem from="1576491713361" duration="113000" />
       <workItem from="1576491881243" duration="6357000" />
       <workItem from="1576503786920" duration="3469000" />
+      <workItem from="1576651283948" duration="3299000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -125,10 +134,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1576230312831" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1576506829581">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1576657576674">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1576506829581" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1576657576674" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1576234545238">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
