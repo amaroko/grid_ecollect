@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="" />
+    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +111,7 @@
       <workItem from="1576684015769" duration="22000" />
       <workItem from="1576684101951" duration="2130000" />
       <workItem from="1576686461220" duration="14104000" />
-      <workItem from="1576909370366" duration="29054000" />
+      <workItem from="1576909370366" duration="29509000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577047330020</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="major activitylog changes">
+      <created>1577047594035</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577047594035</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,10 +173,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1576230312831" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1577047317068">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1577047592172">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1577047317068" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1577047592172" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1576234545238">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -192,14 +201,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1576234559723" />
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577047357816">
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577047900836">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577047357816" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577047900836" />
     <state x="380" y="0" width="606" height="738" key="find.popup" timestamp="1576405625100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="380" y="0" width="606" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1576405625100" />
+    <state x="460" y="81" key="git4idea.branch.GitSmartOperationDialog" timestamp="1577047859320">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="460" y="81" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.738@0.0.1366.738" timestamp="1577047859320" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1576249837848">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
