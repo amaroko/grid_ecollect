@@ -17,7 +17,7 @@ import { license } from '../../env';
 
 import '@ag-grid-enterprise/all-modules';
 // License goes here as for me
-import { LicenseManager } from '@ag-grid-enterprise/all-modules';
+import { LicenseManager } from '@ag-grid-enterprise/all-modules'; // enterprise grid
 
 LicenseManager.setLicenseKey(license.value);
 
@@ -53,4 +53,6 @@ export function createTranslateLoader(http: HttpClient) {
     bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+
+}

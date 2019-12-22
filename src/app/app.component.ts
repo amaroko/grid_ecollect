@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   @HostBinding('class.aside-collapsed-text') get isCollapsedText() { return this.settings.getLayoutSetting('isCollapsedText'); }
 
   // constructor(public settings: SettingsService) { }
+  // constructor(public settings: SettingsService) { }
 
   constructor(public settings: SettingsService,
     private _loadingBar: SlimLoadingBarService,

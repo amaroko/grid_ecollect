@@ -15,29 +15,72 @@
               <p>Address: {{accountdetails?.addressline1 || accountdetails?.address}} Tel:
                 {{accountdetails?.cellnumber || accountdetails?.mobile || accountdetails?.phonenumber || accountdetails?.telnumber || accountdetails?.celnumber}}
               </p>
-              <div class="dropdown show">
+                    <div class="row">
+              <div class="dropdown">
                 {{autodial_telnumber}}
-                <a class="btn btn-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-                  ... More contacts <span class="badge badge-info">{{totalTeles}}</span>
-                </a>
-                <a class="btn btn-link" href="#" role="button" (click)="refreshTeles()" style="color: white"><em
-                    class="fas fa-sync fa-fw"></em>refresh</a> |
-                <a class="btn btn-link" href="#" role="button" (click)="dialAvaya()"><em class="fa fa-phone fa-fw"
-                    style="color: black"></em> Dial</a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a *ngFor="let t of teles" class="dropdown-item" href="#"
+                <button title="Press here for more contacts" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More contacts  <span class="badge badge-info">{{totalTeles}}</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a *ngFor="let t of teles" class="dropdown-item" href="#"-->
                     (click)='changeAutodialNumber(t.TELNUMBER)'>{{t.TELNUMBER}} | {{t.SOURCE}}</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
                 </div>
+
               </div>
+
+              <div class="row dropdown">
+                <button title="Press here for more contacts" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More contacts  <span class="badge badge-info">{{totalTeles}}</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a *ngFor="let t of teles" class="dropdown-item" href="#"-->
+                    (click)='changeAutodialNumber(t.TELNUMBER)'>{{t.TELNUMBER}} | {{t.SOURCE}}</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+
+              </div>
+                    </div>
+<!--              end of row-->
+
+
+<!--              <div class="dropdown show">-->
+<!--                {{autodial_telnumber}}-->
+<!--                <a class="btn btn-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"-->
+<!--                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">-->
+<!--                  ... More contacts <span class="badge badge-info">{{totalTeles}}</span>-->
+<!--                </a>-->
+<!--                <a class="btn btn-link" href="#" role="button" (click)="refreshTeles()" style="color: white"><em-->
+<!--                    class="fas fa-sync fa-fw"></em>refresh</a> |-->
+<!--                <a class="btn btn-link" href="#" role="button" (click)="dialAvaya()"><em class="fa fa-phone fa-fw"-->
+<!--                    style="color: black"></em> Dial</a>-->
+
+<!--                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                  <a *ngFor="let t of teles" class="dropdown-item" href="#"-->
+<!--                    (click)='changeAutodialNumber(t.TELNUMBER)'>{{t.TELNUMBER}} | {{t.SOURCE}}</a>-->
+<!--                </div>-->
+<!--              </div>-->
             </div>
+<!--            <button class="btn btn-link" href="#" role="button" (click)="refreshTeles()" style="color: white"><em-->
+<!--              class="fas fa-sync fa-fw"></em>refresh</button> |-->
+<!--            <button class="btn btn-link" href="#" role="button" (click)="dialAvaya()"><em class="fa fa-phone fa-fw"&ndash;&gt;-->
+<!--              style="color: black"></em> Dial</button>-->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row" style="background-color:red">
+
+<!--  <span [ngClass]="{-->
+<!--                    'badge badge-danger':totalBrokenPtps*1  +nu_of_cc_demands*1 > 1000,-->
+<!--                    'badge badge-warning':totalBrokenPtps*1  +nu_of_cc_demands*1 > 500,-->
+<!--                    'badge badge-warning':totalBrokenPtps*1  +nu_of_cc_demands*1 > 300,-->
+<!--                    'badge badge-success':totalBrokenPtps*1  +nu_of_cc_demands*1 > 0-->
+<!--                  }" >{{totalBrokenPtps*1  +nu_of_cc_demands*1}}</span>-->
+
+  <div [ngStyle]="{backgroundColor: getColor()}" class="row" [ngClass]="{NONE: plan === 'NONE'}" >
       <div style="padding-left: 10px; color: white">
           <p style="margin-left: 10px">Current Account Plan: {{plan}}</p>
       </div>
@@ -50,7 +93,10 @@
         <button [routerLink]="['./activityhome']" [routerLinkActive]="['active']"
           [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}"
           queryParamsHandling="merge" class="btn-sample btn-outline btn btn-block">Client Home</button>
-        c
+        <button [routerLink]="['./notes']" [routerLinkActive]="['active']"
+                [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}"
+                queryParamsHandling="merge" class=" btn-sample btn-outline btn btn-block">Notes History<span
+          class="badge badge-danger float-right">{{notes}}</span></button>
 
         <button [routerLink]="['./activityaction']" [routerLinkActive]="['active']"
           [queryParams]="{accnumber: accnumber, custnumber: custnumber, username: username, sys: sys}"

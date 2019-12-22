@@ -8,7 +8,7 @@
         -webkit-animation: badge 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate-reverse both;
         animation: badge 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate-reverse both;
     }
-    
+
     @-webkit-keyframes badge {
         0% {
             -webkit-transform: scale(0.5);
@@ -39,7 +39,7 @@
   10% { transform: skewX(-25deg); }
   15% { transform: skewX(10deg); }
   20% { transform: skewX(0deg); }
-  100% { transform: skewX(0deg); }  
+  100% { transform: skewX(0deg); }
 } */
 </style>
 
@@ -113,8 +113,13 @@
         <li class="nav-item dropdown dropdown-list" dropdown>
             <a title="Overdue" class="nav-link dropdown-toggle dropdown-toggle-nocaret" dropdownToggle>
                 <em class="icon-bell"></em>
-                <span   class="badge badge-danger">{{totalBrokenPtps*1  +nu_of_cc_demands*1 + nu_of_demandsdue*1}}</span>
-                <!-- {{ num1*1   +num2*1 }} -->
+<!--              To change colour of Notification according to count-->
+              <span [ngClass]="{
+                    'badge badge-danger':totalBrokenPtps*1  +nu_of_cc_demands*1 > 999,
+                    'badge badge-warning':totalBrokenPtps*1  +nu_of_cc_demands*1 > 499,
+                    'badge badge-success':totalBrokenPtps*1  +nu_of_cc_demands*1 > 299,
+                    'badge badge-primary':totalBrokenPtps*1  +nu_of_cc_demands*1 > 0
+                  }" >{{totalBrokenPtps*1  +nu_of_cc_demands*1}}</span>
             </a>
             <!-- START Dropdown menu-->
             <div *dropdownMenu class="dropdown-menu dropdown-menu-right animated flipInX">

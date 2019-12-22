@@ -225,13 +225,13 @@
               </label>
             </div>
             <div class="">
-              
+
             </div>
           </div>
           <div class="col-md-3 col-form-label">
             <div class="checkbox c-checkbox form-check-inline">
               <label>
-                <input type="checkbox" [checked]="false" name="flag" id="flag" name="flag" formControlName="flag" />
+                <input type="checkbox" [ngClass]="{ 'is-invalid': f.flag.errors }" name="flag" id="flag" name="flag" formControlName="flag" />
                 Flag this note <span class="fa fa-check"></span></label>
             </div>
           </div>

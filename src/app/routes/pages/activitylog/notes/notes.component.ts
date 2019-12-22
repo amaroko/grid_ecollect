@@ -38,6 +38,7 @@ export class NotesComponent implements OnInit {
   };
 
   currentDate: any = new Date();
+  private NOTEDATE: any;
   constructor(
     private ecolservice: EcolService,
     private route: ActivatedRoute,
@@ -96,8 +97,11 @@ export class NotesComponent implements OnInit {
     // console.log('this.query ', this.query);
     this.ecolservice.getallnotes(this.query, cust).subscribe(data => {
       this.notes = data;
+      console.log(data);
       // this.noteslength = data.length;
       for (let i = 0; i < data.length; i++) {
+        // tslint:disable-next-line:max-line-length
+        // Notes won't be editable after midnight
         // tslint:disable-next-line:max-line-length
         if (this.notes[i].OWNER === this.username && (this.datePipe.transform(this.currentDate, 'dd-MMM-yy')).toUpperCase() === ((this.notes[i].NOTEDATE).substring(0, 9)).toUpperCase()) {
           this.notes[i].showedit = true;

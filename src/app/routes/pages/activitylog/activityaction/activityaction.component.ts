@@ -82,6 +82,7 @@ export class ActivityActionComponent implements OnInit {
     { id: 'No', name: 'No' },
     { id: 'Yes', name: 'Yes' },
   ];
+  private checked: any;
 
   currentDate() {
     const currentDate = new Date();
@@ -109,7 +110,7 @@ export class ActivityActionComponent implements OnInit {
     // check if logged!
     this.ecolService.ifLogged();
     this.ecolService.ifclosed();
-    
+
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.username = currentUser.USERNAME;
 
@@ -161,6 +162,7 @@ export class ActivityActionComponent implements OnInit {
   getaccount(accnumber) {
     this.ecolService.getAccount(accnumber).subscribe(data => {
       this.account = data[0];
+      // tslint:disable-next-line:max-line-length
       this.autodial_telnumber = this.account.cellnumber || this.account.mobile || this.account.phonenumber || this.account.telnumber || this.account.celnumber;
       this.model.emailaddress = data[0].emailaddress;
       // build form
@@ -302,12 +304,13 @@ export class ActivityActionComponent implements OnInit {
       return;
     }
 
-    if (this.f.ptpemail.value && this.f.toemail.value == '') {
+    if (this.f.ptpemail.value && this.f.toemail.value === '') {
       alert('Please fill Customer email');
       return;
     }
 
-    if (this.f.ptpsms.value && this.f.ptpsmsnumber.value == '') {
+
+    if (this.f.ptpsms.value && this.f.ptpsmsnumber.value === '') {
       alert('Please fill Customer Mobile number');
       return;
     }
@@ -315,11 +318,12 @@ export class ActivityActionComponent implements OnInit {
     // check if logged in
     this.ecolService.ifLogged();
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
+
     this.username = currentUser.USERNAME;
 
     // post data
     this.ecolService.loader();
+    this.checkbox();
     this.savebody = {
       collectoraction: this.f.collectoraction.value,
       party: this.f.party.value,
@@ -332,7 +336,7 @@ export class ActivityActionComponent implements OnInit {
       ptpsmsnumber: this.f.ptpsmsnumber.value,
       // tslint:disable-next-line:max-line-length + '   Reason details: ' + this.f.rfdother.value
       collectornote: this.f.collectornote.value + '   Reason for default: ' + this.f.reason.value,
-      reviewdate: moment(this.f.reviewdate.value).format('DD-MMM-YYYY'),
+      reviewdate:  moment(this.f.reviewdate.value).format('DD-MMM-YYYY'),
       reason: this.f.reason.value,
       cmdstatus: this.f.cmdstatus.value,
       route: this.f.route.value,
@@ -342,14 +346,13 @@ export class ActivityActionComponent implements OnInit {
       arramount: this.account.totalarrears || 0,
       oustamount: this.account.oustbalance || 0,
       notesrc: 'made a note',
-      noteimp: 'N',
+      noteimp: this.checked,
       rfdother: this.f.rfdother.value,
       owner: this.username,
       product: this.account.section
     };
-    if (this.f.flag.value) {
-      this.savebody.noteimp = 'Y';
-    }
+    console.log(this.checked); // to check if checkbox is working
+
 
     if (this.f.ptpemail.value) {
       // send ptp reminder email
@@ -359,7 +362,7 @@ export class ActivityActionComponent implements OnInit {
         ccemail: this.username,
         ptpamount: 0,
         ptpdate: 0
-      }
+      };
     }
     // add action
     this.ecolService.postactivitylogs(this.savebody).subscribe(data => {
@@ -374,6 +377,7 @@ export class ActivityActionComponent implements OnInit {
           excuse: this.f.reason.value,
           lastactiondate: new Date(),
           reviewdate: moment(this.f.reviewdate.value).format('DD-MMM-YYYY'),
+          noteimp: this.checked,
           routetostate: this.f.route.value
         };
 
@@ -390,6 +394,7 @@ export class ActivityActionComponent implements OnInit {
           excuse: this.f.reason.value,
           lastactiondate: new Date(),
           reviewdate: moment(this.f.reviewdate.value).format('DD-MMM-YYYY'),
+          noteimp: this.checked,
           routetostate: this.f.route.value
         };
 
@@ -404,8 +409,8 @@ export class ActivityActionComponent implements OnInit {
         imageUrl: 'assets/img/user/coop.jpg',
         text: 'Close activity windows?',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#7ac142',
+        cancelButtonColor: '#00543d',
         confirmButtonText: 'Yes, Close!'
       }).then((result) => {
         if (result.value) {
@@ -449,6 +454,15 @@ export class ActivityActionComponent implements OnInit {
     }
   }
 
+  checkbox() {
+
+    if (this.f.flag.value === true) {
+      this.checked = 'Y';
+    } else {
+      this.checked = 'N';
+    }
+  }
+
   changeAction(value) {
     if (value === 'OC' || value === 'IC' || value === 'MET') {
       this.actionForm.controls.party.enable();
@@ -480,7 +494,7 @@ export class ActivityActionComponent implements OnInit {
     if (value === 'Yes') {
       // check if ptp exists
       this.ecolService.activeptps(this.accnumber).subscribe(activedata => {
-        if(activedata && activedata.data.length > 0){
+        if (activedata && activedata.data.length > 0) {
           swal({
             type: 'error',
             title: 'Oops...',
@@ -537,7 +551,7 @@ export class ActivityActionComponent implements OnInit {
 
   openptpModal() {
     // open modal
-    this.ngxSmartModalService.getModal('myModal').open()
+    this.ngxSmartModalService.getModal('myModal').open();
   }
 
   deleteptp(form) {

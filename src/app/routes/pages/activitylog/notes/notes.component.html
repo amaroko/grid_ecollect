@@ -3,27 +3,38 @@
 </ngx-spinner>
 
 <div class="form-group row">
-  <label class="col-md-0 col-form-label"></label>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" id="inlineRadio1" type="radio" [(ngModel)]="model.noteselector" name="noteselector"
-      value="bulk" (click)="handleChange('bulk')" />
-    <label class="form-check-label" for="inlineRadio1">Bulk uploaded <span
-        class="badge badge-primary float-right">{{bulknotelength}}</span></label>
+  <div class="btn-group">
+    <button  name="noteselector" value="bulk" (click)="handleChange('bulk')"  class="btn-sample btn-outline btn btn-sm">Bulk uploaded&nbsp;&nbsp; <span
+      class="badge badge-primary float-right">{{bulknotelength}}</span></button>
+    &nbsp;&nbsp;
+    <button  name="noteselector"
+       value="collector" (click)="handleChange('collector')"  class="btn-sample btn-outline btn btn-sm">Collector made&nbsp;&nbsp; <span
+      class="badge badge-success float-right">{{noteslength}}</span></button>
+    &nbsp;&nbsp;
+    <button  name="noteselector"
+       value="flagged" (click)="handleChange('flagged')"  class="btn-sample btn-outline btn btn-sm">Flagged important&nbsp;&nbsp; <span
+      class="badge badge-success float-right">{{flaggedlength}}</span></button>
   </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" id="inlineRadio2" type="radio" [(ngModel)]="model.noteselector" name="noteselector"
-      value="collector" [checked]='true' (click)="handleChange('collector')" />
-    <label class="form-check-label" for="inlineRadio2">Collector made <span
-        class="badge badge-success float-right">{{noteslength}}</span></label>
-  </div>
+<!--  <label class="col-md-0 col-form-label"></label>-->
+<!--  <div class="form-check form-check-inline">-->
+<!--    <input class="form-check-input" id="inlineRadio1" type="radio" [(ngModel)]="model.noteselector" name="noteselector"-->
+<!--      value="bulk" (click)="handleChange('bulk')" />-->
+<!--    <label class="form-check-label" for="inlineRadio1">Bulk uploaded <span-->
+<!--        class="badge badge-primary float-right">{{bulknotelength}}</span></label>-->
+<!--  </div>-->
+<!--  <div class="form-check form-check-inline">-->
+<!--    <input class="form-check-input" id="inlineRadio2" type="radio" [(ngModel)]="model.noteselector" name="noteselector"-->
+<!--      value="collector" [checked]='true' (click)="handleChange('collector')" />-->
+<!--    <label class="form-check-label" for="inlineRadio2">Collector made <span-->
+<!--        class="badge badge-success float-right">{{noteslength}}</span></label>-->
+<!--  </div>-->
 
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" id="inlineRadio3" type="radio" [(ngModel)]="model.noteselector" name="noteselector"
-      value="flagged" (click)="handleChange('flagged')" />
-    <label class="form-check-label" for="inlineRadio3">Flagged important <span
-        class="badge badge-danger float-right">{{flaggedlength}}</span></label>
-  </div>
-// am working on this
+<!--  <div class="form-check form-check-inline">-->
+<!--    <input class="form-check-input" id="inlineRadio3" type="radio" [(ngModel)]="model.noteselector" name="noteselector"-->
+<!--      value="flagged" (click)="handleChange('flagged')" />-->
+<!--    <label class="form-check-label" for="inlineRadio3">Flagged important <span-->
+<!--        class="badge badge-danger float-right">{{flaggedlength}}</span></label>-->
+<!--  </div>-->
 <!--  <button  [(ngModel)]="model.noteselector" name="noteselector"-->
 <!--           value="collector"  (click)="handleChange('collector')"-->
 <!--          class=" btn-sample btn-outline btn btn-block">Collector made<span-->

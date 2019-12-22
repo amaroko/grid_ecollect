@@ -165,8 +165,8 @@ export class ActivityLogComponent implements OnInit {
       if (data && data.length) {
         this.ecolService.single_s_plans(data[0].planid).subscribe(plandata => {
           this.plan = plandata.plantitle;
-        })
-        
+        });
+
       }
     }, error => {
       console.log(error);
@@ -300,4 +300,8 @@ export class ActivityLogComponent implements OnInit {
     alert('avaya integration in progress!!!');
   }
 
+  // Changes colour of Account Plan Background, if None, will be red, if not none, will be Green
+  getColor() {
+    return this.plan !== 'NONE' ? '#7ac142' : 'red';
+  }
 }

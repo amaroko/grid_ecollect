@@ -7,6 +7,7 @@
             "app",
             "camelCase"
         ],
+      "radix": false,
         "component-selector": [
             true,
             "element",
