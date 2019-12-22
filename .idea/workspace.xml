@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -112,6 +113,7 @@
       <workItem from="1576684101951" duration="2130000" />
       <workItem from="1576686461220" duration="14104000" />
       <workItem from="1576909370366" duration="29509000" />
+      <workItem from="1577048636246" duration="319000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -197,14 +199,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1308" height="159" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1576147095878" />
-    <state x="184" y="11" key="SettingsEditor" timestamp="1576234559723">
+    <state x="184" y="11" key="SettingsEditor" timestamp="1577048856107">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1576234559723" />
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577047900836">
+    <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1577048856107" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577048921017">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577047900836" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577048921017" />
     <state x="380" y="0" width="606" height="738" key="find.popup" timestamp="1576405625100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
