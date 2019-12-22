@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="loans,ecredit,cards grids changed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/tslint.json" afterDir="false" />
-    </list>
+    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +109,7 @@
       <workItem from="1576684015769" duration="22000" />
       <workItem from="1576684101951" duration="2130000" />
       <workItem from="1576686461220" duration="14104000" />
-      <workItem from="1576909370366" duration="28654000" />
+      <workItem from="1576909370366" duration="29054000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -144,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576663358389</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="major activitylog changes">
+      <created>1577047330020</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577047330020</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,9 +148,14 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="loans,ecredit,cards grids changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="loans,ecredit,cards grids changed" />
+    <MESSAGE value="major activitylog changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="major activitylog changes" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="27" key="#Notifications" timestamp="1577047452157">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="27" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1577047452157" />
     <state x="275" y="27" key="#TSLint" timestamp="1577024258796">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -164,10 +164,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1576230312831" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1576663518717">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1577047317068">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1576663518717" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1577047317068" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1576234545238">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -192,10 +192,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1576234559723" />
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1576663979052">
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577047357816">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1576663979052" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577047357816" />
     <state x="380" y="0" width="606" height="738" key="find.popup" timestamp="1576405625100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
