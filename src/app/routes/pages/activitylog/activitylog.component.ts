@@ -301,6 +301,7 @@ export class ActivityLogComponent implements OnInit {
   }
 
   // Changes colour of Account Plan Background, if None, will be red, if not none, will be Green
+
   getColor() {
     return this.plan !== 'NONE' ? '#7ac142' : 'red';
   }

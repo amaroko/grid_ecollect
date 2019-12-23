@@ -16,7 +16,7 @@ import { RoutesModule } from './routes/routes.module';
 import { license } from '../../env';
 
 import '@ag-grid-enterprise/all-modules';
-// License goes here as for me
+// License goes here
 import { LicenseManager } from '@ag-grid-enterprise/all-modules'; // enterprise grid
 
 LicenseManager.setLicenseKey(license.value);

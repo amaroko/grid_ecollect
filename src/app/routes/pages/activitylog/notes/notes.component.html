@@ -96,7 +96,13 @@
     <li *ngFor="let note of bulknote | paginate: { itemsPerPage: 3, currentPage: p }">
       <a href="#"><small>{{note.owner}} {{note.notesrc}} on Account {{note.accnumber}}</small></a>
       <a href="#" class="float-right">{{note.notedate}}</a>
-      <p>{{note.notemade}}</p>
+      <p>{{note.notemade}}
+
+        <small><a (click)="editnote(note)" *ngIf="note.showedit" class="mr-1 mb-1 btn-sm btn btn-outline-success">
+          <span class="far fa-edit" aria-hidden="true"></span>
+          <span style="color: red;"><strong>Edit</strong></span>
+        </a></small>
+      </p>
     </li>
   </ul>
 
@@ -109,7 +115,13 @@
     <li *ngFor="let note of flaggedNotes | paginate: { itemsPerPage: 3, currentPage: p }">
       <a href="#"><small>{{note.owner}} {{note.notesrc}} on Account {{note.accnumber}}</small></a>
       <a href="#" class="float-right">{{note.notedate}}</a>
-      <p>{{note.notemade}}</p>
+      <p>{{note.notemade}}
+
+        <small><a (click)="editnote(note)" *ngIf="note.showedit" class="mr-1 mb-1 btn-sm btn btn-outline-success">
+          <span class="far fa-edit" aria-hidden="true"></span>
+          <span style="color: red;"><strong>Edit</strong></span>
+        </a></small>
+      </p>
     </li>
   </ul>
 

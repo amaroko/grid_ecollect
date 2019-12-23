@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +116,7 @@
       <workItem from="1576684101951" duration="2130000" />
       <workItem from="1576686461220" duration="14104000" />
       <workItem from="1576909370366" duration="29509000" />
-      <workItem from="1577048636246" duration="319000" />
+      <workItem from="1577048636246" duration="7616000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -150,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577047594035</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="major activitylog changes1">
+      <created>1577048994832</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1577048994832</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +170,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="loans,ecredit,cards grids changed" />
     <MESSAGE value="major activitylog changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="major activitylog changes" />
+    <MESSAGE value="major activitylog changes1" />
+    <option name="LAST_COMMIT_MESSAGE" value="major activitylog changes1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Notifications" timestamp="1577047452157">
@@ -175,10 +186,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1576230312831" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1577047592172">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1577048989992">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1577047592172" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1577048989992" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1576234545238">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -203,10 +214,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1577048856107" />
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577048921017">
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577048998851">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577048921017" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577048998851" />
     <state x="380" y="0" width="606" height="738" key="find.popup" timestamp="1576405625100">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
