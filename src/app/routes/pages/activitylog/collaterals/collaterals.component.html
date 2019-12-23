@@ -1,179 +1,169 @@
-<div class="content-heading">
-    <div>Collaterals:
-        <small>add a collateral</small></div>
-</div>
-<div id="accordion">
-    <div class="card">
-        <div class="card-header">
-            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                Existing Collaterals <span class="badge badge-warning">{{collaterals?.length}}</span>
-            </a>
-        </div>
-        <div id="collapseThree" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-                <!-- START table-responsive-->
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Accnumber</th>
-                                <th scope="col">Custnumber</th>
-                                <th scope="col">Collateral Name</th>
-                                <th scope="col">Market sale value</th>
-                                <th scope="col">Forced sale value</th>
-                                <th scope="col">Reg owner</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let g of collaterals; index as i">
-                                <th scope="row">{{i+1}}</th>
-                                <td>{{g.accnumber}}</td>
-                                <td>{{g.custnumber}}</td>
-                                <td>{{g.collateralname}}</td>
-                                <td>{{g.marketvalue}}</td>
-                                <td>{{g.forcedsale}}</td>
-                                <td>{{g.regowner}}</td>
-                                <td class="text-center">
-                                    <button class="btn btn-outline-success btn-sm" (click)="editcollateral(g)">
-                                        <i class="fas fa-edit"></i> edit
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- END table-responsive-->
+<ngb-tabset type="pills">
+<!--  tab starts-->
+  <ngb-tab >
+    <ng-template ngbTabTitle>Existing Collaterals <span class="badge badge-warning">{{collaterals?.length}}</span></ng-template>
+    <ng-template ngbTabContent>
+      <!-- START table-responsive-->
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Accnumber</th>
+            <th scope="col">Custnumber</th>
+            <th scope="col">Collateral Name</th>
+            <th scope="col">Market sale value</th>
+            <th scope="col">Forced sale value</th>
+            <th scope="col">Reg owner</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let g of collaterals; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{g.accnumber}}</td>
+            <td>{{g.custnumber}}</td>
+            <td>{{g.collateralname}}</td>
+            <td>{{g.marketvalue}}</td>
+            <td>{{g.forcedsale}}</td>
+            <td>{{g.regowner}}</td>
+            <td class="text-center">
+              <button class="btn btn-outline-success btn-sm" (click)="editcollateral(g)">
+                <i class="fas fa-edit"></i> edit
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Add New Collateral</b> details</ng-template>
+    <ng-template ngbTabContent>
+      <!-- START card-->
+      <div class="card card-default">
+        <div class="card-body">
+          <form #newCollateralForm="ngForm" class="form-horizontal"
+                (ngSubmit)="onSubmit(newCollateralForm)" autocomplete="off">
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Customer custnumber</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="custnumber" id="custnumber"
+                       #custnumber="ngModel" [(ngModel)]="model.custnumber" [disabled]="true"
+                       required />
+              </div>
             </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- START card-->
-                <div class="card card-default">
-                    <div class="card-header">Enter Collateral details</div>
-                    <div class="card-body">
-                        <form #newCollateralForm="ngForm" class="form-horizontal"
-                            (ngSubmit)="onSubmit(newCollateralForm)" autocomplete="off">
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Customer custnumber</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="custnumber" id="custnumber"
-                                        #custnumber="ngModel" [(ngModel)]="model.custnumber" [disabled]="true"
-                                        required />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Customer accnumber</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="accnumber" id="accnumber"
-                                        #accnumber="ngModel" [(ngModel)]="model.accnumber" [disabled]="true" required />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Collateral title/name</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="collateralname" id="collateralname"
-                                        #collateralname="ngModel" [(ngModel)]="model.collateralname"
-                                        [ngClass]="{ 'is-invalid': collateralname.invalid }" required />
-                                    <div class="validation-error"
-                                        *ngIf="collateralname.invalid && collateralname.touched">collateral name
-                                        is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Registered Owner</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="regowner" id="regowner"
-                                        #regowner="ngModel" [(ngModel)]="model.regowner"
-                                        [ngClass]="{ 'is-invalid': regowner.invalid }" required />
-                                    <div class="validation-error" *ngIf="regowner.invalid && regowner.touched">
-                                        registered owner name
-                                        is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Forced Sale Value</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="forcedsale" id="forcedsale"
-                                        #forcedsale="ngModel" [(ngModel)]="model.forcedsale"
-                                        [ngClass]="{ 'is-invalid': forcedsale.invalid }" required />
-                                    <div class="validation-error" *ngIf="forcedsale.invalid && forcedsale.touched">
-                                        forced sale value is
-                                        required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Market Sale Value</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="marketvalue" id="marketvalue"
-                                        #marketvalue="ngModel" [(ngModel)]="model.marketvalue"
-                                        [ngClass]="{ 'is-invalid': marketvalue.invalid }" required />
-                                    <div class="validation-error" *ngIf="marketvalue.invalid && marketvalue.touched">
-                                        Marketvalue is
-                                        required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Insurance Value</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="insurancevalue" id="insurancevalue"
-                                        #insurancevalue="ngModel" [(ngModel)]="model.insurancevalue"
-                                        [ngClass]="{ 'is-invalid': insurancevalue.invalid }" required />
-                                    <div class="validation-error"
-                                        *ngIf="insurancevalue.invalid && insurancevalue.touched">
-                                        insurancevalue is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Valuation Date</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="valuationdate" id="valuationdate"
-                                        #valuationdate="ngModel" [(ngModel)]="model.valuationdate"
-                                        [ngClass]="{ 'is-invalid': valuationdate.invalid }" required />
-                                    <div class="validation-error"
-                                        *ngIf="valuationdate.invalid && valuationdate.touched">
-                                        valuationdate is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Tenure</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="tenure" id="tenure" #tenure="ngModel"
-                                        [(ngModel)]="model.tenure" [ngClass]="{ 'is-invalid': tenure.invalid }"
-                                        required />
-                                    <div class="validation-error" *ngIf="tenure.invalid && tenure.touched">
-                                        tenure is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label">Valuer</label>
-                                <div class="col-xl-9">
-                                    <input class="form-control" type="text" name="valuer" id="valuer" #valuer="ngModel"
-                                        [(ngModel)]="model.valuer" />
-                                </div>
-                            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Customer accnumber</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="accnumber" id="accnumber"
+                       #accnumber="ngModel" [(ngModel)]="model.accnumber" [disabled]="true" required />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Collateral title/name</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="collateralname" id="collateralname"
+                       #collateralname="ngModel" [(ngModel)]="model.collateralname"
+                       [ngClass]="{ 'is-invalid': collateralname.invalid }" required />
+                <div class="validation-error"
+                     *ngIf="collateralname.invalid && collateralname.touched">collateral name
+                  is required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Registered Owner</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="regowner" id="regowner"
+                       #regowner="ngModel" [(ngModel)]="model.regowner"
+                       [ngClass]="{ 'is-invalid': regowner.invalid }" required />
+                <div class="validation-error" *ngIf="regowner.invalid && regowner.touched">
+                  registered owner name
+                  is required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Forced Sale Value</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="forcedsale" id="forcedsale"
+                       #forcedsale="ngModel" [(ngModel)]="model.forcedsale"
+                       [ngClass]="{ 'is-invalid': forcedsale.invalid }" required />
+                <div class="validation-error" *ngIf="forcedsale.invalid && forcedsale.touched">
+                  forced sale value is
+                  required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Market Sale Value</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="marketvalue" id="marketvalue"
+                       #marketvalue="ngModel" [(ngModel)]="model.marketvalue"
+                       [ngClass]="{ 'is-invalid': marketvalue.invalid }" required />
+                <div class="validation-error" *ngIf="marketvalue.invalid && marketvalue.touched">
+                  Marketvalue is
+                  required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Insurance Value</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="insurancevalue" id="insurancevalue"
+                       #insurancevalue="ngModel" [(ngModel)]="model.insurancevalue"
+                       [ngClass]="{ 'is-invalid': insurancevalue.invalid }" required />
+                <div class="validation-error"
+                     *ngIf="insurancevalue.invalid && insurancevalue.touched">
+                  insurancevalue is required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Valuation Date</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="valuationdate" id="valuationdate"
+                       #valuationdate="ngModel" [(ngModel)]="model.valuationdate"
+                       [ngClass]="{ 'is-invalid': valuationdate.invalid }" required />
+                <div class="validation-error"
+                     *ngIf="valuationdate.invalid && valuationdate.touched">
+                  valuationdate is required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Tenure</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="tenure" id="tenure" #tenure="ngModel"
+                       [(ngModel)]="model.tenure" [ngClass]="{ 'is-invalid': tenure.invalid }"
+                       required />
+                <div class="validation-error" *ngIf="tenure.invalid && tenure.touched">
+                  tenure is required</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label">Valuer</label>
+              <div class="col-xl-6">
+                <input class="form-control" type="text" name="valuer" id="valuer" #valuer="ngModel"
+                       [(ngModel)]="model.valuer" />
+              </div>
+            </div>
 
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-form-label"></label>
-                                <div class="col-xl-9">
-                                    <button *ngIf="!edit" [disabled]="!newCollateralForm.valid || !newCollateralForm.dirty"
-                                        class="btn btn-sm btn-outline-primary" type="submit">Submit</button>
-                                    <button *ngIf="!edit" class="btn btn-sm btn-outline-danger" type="button"
-                                        (click)="reset()">Reset</button>
-                                    <button *ngIf="edit" [disabled]="newCollateralForm.invalid" class="mb-1 mr-1 btn btn-sm btn-outline-warning  col-form-label"
-                                        type="button" (click)="updatecollateral(model)">Update</button>
-                                    <button *ngIf="edit" class="mb-1 mr-1 btn btn-sm btn-outline-danger  col-form-label"
-                                        type="button" (click)="cancel()">Cancel</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- END card-->
+            <div class="form-group row">
+              <label class="col-xl-3 col-form-label"></label>
+              <div class="col-xl-6">
+                <button *ngIf="!edit" [disabled]="!newCollateralForm.valid || !newCollateralForm.dirty"
+                        class="btn btn-sm btn-outline-primary" type="submit">Submit</button>
+                <button *ngIf="!edit" class="btn btn-sm btn-outline-danger" type="button"
+                        (click)="reset()">Reset</button>
+                <button *ngIf="edit" [disabled]="newCollateralForm.invalid" class="mb-1 mr-1 btn btn-sm btn-outline-warning  col-form-label"
+                        type="button" (click)="updatecollateral(model)">Update</button>
+                <button *ngIf="edit" class="mb-1 mr-1 btn btn-sm btn-outline-danger  col-form-label"
+                        type="button" (click)="cancel()">Cancel</button>
+              </div>
             </div>
+          </form>
         </div>
-    </div>
-</div>
+      </div>
+<!--      end of card-->
+    </ng-template>
+  </ngb-tab>
+
+</ngb-tabset>
+
