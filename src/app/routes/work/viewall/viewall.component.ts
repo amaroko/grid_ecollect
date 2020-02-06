@@ -12,7 +12,7 @@ import {AllModules} from '@ag-grid-enterprise/all-modules';
 export class ViewallComponent implements OnInit {
   public gridApi;
   public gridColumnApi;
-
+  private statusBar;
   public columnDefs;
   public defaultColDef;
   public rowModelType;
@@ -111,6 +111,21 @@ export class ViewallComponent implements OnInit {
     this.rowModelType = 'serverSide';
     this.cacheBlockSize = 50;
     this.maxBlocksInCache = 0;
+    this.statusBar = {
+      statusPanels: [
+        {
+          statusPanel: 'agTotalAndFilteredRowCountComponent',
+          align: 'left'
+        },
+        {
+          statusPanel: 'agTotalRowCountComponent',
+          align: 'center'
+        },
+        { statusPanel: 'agFilteredRowCountComponent' },
+        { statusPanel: 'agSelectedRowCountComponent' },
+        { statusPanel: 'agAggregationComponent' }
+      ]
+    };
   }
 
   onGridReady(params) {
@@ -118,8 +133,8 @@ export class ViewallComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
 
     const datasource = {
-      // tslint:disable-next-line:no-shadowed-variable
       getRows(params) {
+        // tslint:disable-next-line:no-shadowed-variable
         console.log(JSON.stringify(params.request, null, 1));
 
         fetch(environment.nodeapi + '/gridviewall/viewall', {

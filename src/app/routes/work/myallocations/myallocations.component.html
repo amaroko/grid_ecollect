@@ -37,7 +37,7 @@
       <ag-grid-angular #agGrid id="myGrid" class="ag-theme-balham" style="width: 100%; height: 550px;"
                        [columnDefs]="columnDefs"
                        [defaultColDef]="defaultColDef" [paginationAutoPageSize]="true"
-                       [gridOptions]="gridOptions" [pagination]="true" [floatingFilter]="true" [rowData]="rowData"
+                       [gridOptions]="gridOptions" [pagination]="true" [statusBar]="statusBar" [floatingFilter]="true" [rowData]="rowData"
                        [modules]="modules" [pivotPanelShow]="pivotPanelShow" [sideBar]="true"
                        [animateRows]="true" (rowClicked)='onRowDoubleClicked($event)'>
 

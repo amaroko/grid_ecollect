@@ -49,7 +49,7 @@ export class PtpsComponent implements OnInit {
       },
       {
         headerName: 'CUST_NAME',
-        field: 'client_name',
+        field: 'CLIENT_NAME',
         filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true
       },
       {
@@ -110,7 +110,13 @@ export class PtpsComponent implements OnInit {
         })
           .then(httpResponse => httpResponse.json())
           .then(response => {
+            // check if null return zero
+            if (response.lastRow === null) {
+              response.lastRow = '0';
+            }
             params.successCallback(response.rows, response.lastRow);
+
+            console.log(response.lastRow);
           })
           .catch(error => {
             console.error(error);

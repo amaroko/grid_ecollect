@@ -725,6 +725,10 @@ export class EcolService {
     return this.httpClient.get<any>(environment.nodeapi + '/loans/brokenptps');
   }
 
+  getcustnumber() {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<any>(environment.api + '/api/tqall/search');
+  }
   totalcarddue() {
     const url = environment.nodeapi + '/loans/demandlettersccdue/';
     return this.httpClient.get(url);

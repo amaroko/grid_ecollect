@@ -5,6 +5,10 @@ import { isNullOrUndefined } from 'util';
 import { NgxSpinnerService } from 'ngx-spinner';
 import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
+import {GridOptions} from '@ag-grid-community/all-modules';
+import { HttpClient} from '@angular/common/http';
+import {environment} from '../../../../../environments/environment';
+import {AllModules} from '@ag-grid-enterprise/all-modules';
 
 
 @Component({
@@ -15,6 +19,21 @@ import { DatePipe } from '@angular/common';
 })
 export class NotesComponent implements OnInit {
 
+
+
+
+  public gridOptions: GridOptions;
+  private statusBar;
+  public gridApi;
+  public gridColumnApi;
+  public columnDefs;
+  public sortingOrder;
+  public defaultColDef;
+  public rowData: [];
+  modules = AllModules;
+  private str: string;
+  pivotPanelShow = true;
+
   noteData: any = [];
   notes: any = [];
   username: string;
@@ -23,6 +42,7 @@ export class NotesComponent implements OnInit {
   bulknotelength = 0;
   noteslength: number;
   flaggedlength = 0;
+  allnotes = 0;
   model: any = {};
   p = 1;
   private selectedLink: any = 'collector';
@@ -40,6 +60,7 @@ export class NotesComponent implements OnInit {
   currentDate: any = new Date();
   private NOTEDATE: any;
   constructor(
+    public http: HttpClient,
     private ecolservice: EcolService,
     private route: ActivatedRoute,
     private rout: Router,
@@ -47,6 +68,105 @@ export class NotesComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private ecolService: EcolService,
   ) {
+
+    this.gridOptions = <GridOptions>{
+
+
+      // suppressCellSelection: true,
+
+
+      // domLayout: 'autoHeight',
+      rowSelection: 'single',
+      rowModelType: 'normal',
+      // rowModelType: 'infinite',
+
+      pagination: true,
+      paginationPageSize: 20,
+
+      onGridReady: (params) => {
+
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+        // params.api.sizeColumnsToFit();
+        // this.gridApi.setDatasource(this.dataSource);
+        // environment.api + '/api/tqall/paged/myallocation?colofficer=' + this.username
+        this.http
+          .get(environment.api + '/api/notehis/allcustnotes?custnumber=' + this.cust)
+          .subscribe(resp => {
+            console.log(typeof resp); // to check whether object or array
+            this.str = JSON.stringify(resp, null, 4);
+            const obj: any = JSON.parse(this.str);
+
+            params.api.setRowData(obj);
+
+          });
+
+      }
+    };
+    this.columnDefs = [
+      {
+        field: 'ACCNUMBER',
+        // cellRenderer: function (params) {
+        //   if (params.value !== undefined) {
+        //     return '<a  href="#" target="_blank">' + params.value + '</a>';
+        //   } else {
+        //     return ''; // <img src="assets/img/user/loading.gif" alt="Loading Icon">
+        //   }
+        // },
+        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true
+      },
+      {
+        field: 'CUSTNUMBER',
+        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true,
+      },
+      {
+        field: 'NOTEMADE',
+        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true, width: 360,
+      },
+      {
+        field: 'NOTEDATE',
+        filter: 'agTextColumnFilter',
+        filterParams: { newRowsAction: 'keep', browserDatePicker: true, }, resizable: true, valueFormatter: this.dateFormatter,
+
+      },
+      {
+        field: 'NOTEIMP',
+        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true,
+      },
+      {
+        field: 'NOTESRC',
+        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true,
+      }
+    ];
+    this.sortingOrder = ['desc', 'asc', null ];
+    this.defaultColDef = {
+      width: 120,
+      resizable: true,
+      sortable: true,
+      floatingFilter: true,
+      unSortIcon: true,
+      suppressResize: false,
+      enableRowGroup: true,
+      enablePivot: true,
+      pivot: true
+    };
+    this.statusBar = {
+      statusPanels: [
+        {
+          statusPanel: 'agTotalAndFilteredRowCountComponent',
+          align: 'left'
+        },
+        {
+          statusPanel: 'agTotalRowCountComponent',
+          align: 'center'
+        },
+        { statusPanel: 'agFilteredRowCountComponent' },
+        { statusPanel: 'agSelectedRowCountComponent' },
+        { statusPanel: 'agAggregationComponent' }
+      ]
+    };
+
+
   }
 
   ngOnInit() {
@@ -88,6 +208,10 @@ export class NotesComponent implements OnInit {
     });
   }
 
+
+dateFormatter(params) {
+  return moment(params.value).format('MM/DD/YYYY HH:mm');
+}
   getAll(cust) {
     this.spinner.show();
     this.query.limit = this.pager.limit;
@@ -147,6 +271,10 @@ export class NotesComponent implements OnInit {
 
   handleChange(e) {
     this.selectedLink = e;
+  }
+
+  onBtnExportDataAsExcel() {
+    this.gridApi.exportDataAsExcel();
   }
 
   isSelected(name: string) {

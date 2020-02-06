@@ -40,6 +40,8 @@ import { ActivitydashComponent } from '../pages/activitydash/activitydash.compon
 import { EditnoteComponent } from '../pages/activitylog/editnote/editnote.component';
 import { PtpsComponent } from './activitylog/ptps/ptps.component';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import {AgGridModule} from '@ag-grid-community/angular';
+import { DateselectorComponent } from './activitylog/dateselector/dateselector.component';
 
 /* Use this routes definition in case you want to make them lazy-loaded */
 /*const routes: Routes = [
@@ -65,7 +67,8 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
         // CustomFormsModule,
         BsDatepickerModule.forRoot(),
         NgxSmartModalModule.forRoot(),
-        NgxPaginationModule
+        NgxPaginationModule,
+        AgGridModule,
         // RouterModule.forChild(routes)
     ],
     declarations: [
@@ -93,7 +96,8 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
         ActivitydashComponent,
         EditnoteComponent,
         PtpsComponent,
-        ExtloginComponent
+        ExtloginComponent,
+        DateselectorComponent
     ],
     providers: [
         ToasterService,

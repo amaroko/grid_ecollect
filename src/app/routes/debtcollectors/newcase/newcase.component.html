@@ -1,9 +1,207 @@
-<div class="content-heading">
-    <div>Debt Collectors
-        <small>New cases</small></div>
-</div>
-<div class="container-fluid">
-    <div class="col-4 col-xl-12">
-        
+<!--      <a type="reset" class="btn btn-sm btn-danger" [routerLink]="['/debtcollectors/allcases']" ><i class="fa fa-ban"></i> Back</a>-->
+
+<!--<div class="row">-->
+<!--  <div class="col-md-10">-->
+<!--  <div class="form-group ">-->
+<!--    <label for="typeahead-http">Search for a wiki page:</label>-->
+<!--    <input id="typeahead-http" type="text" class="form-control col-md-8" [class.is-invalid]="searchFailed"-->
+<!--            [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="resultFormatBandListValue" [inputFormatter]="inputFormatBandListValue" placeholder="Search Here" />-->
+<!--    <small *ngIf="searching" class="form-text text-muted">searching...</small>-->
+<!--    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<pre>Model: {{ model | json }}</pre>-->
+
+
+<div>
+  <div class="card">
+    <div class="card-header">
+      <strong>New Debt Collector activity </strong> capture
     </div>
+    <form #f="ngForm"   novalidate autocomplete="off">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-2 col-md-3">
+            Search Customer Number
+          </div>
+          <div class="col-md-9">
+            <div class="col-md-12">
+              <label for="typeahead-http"></label>
+              <input [(ngModel)]="model" id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed"
+                                                          [ngbTypeahead]="search"  [resultFormatter]="resultFormatBandListValue" [inputFormatter]="inputFormatBandListValue" placeholder="Search" />
+<!--              <small *ngIf="searching" class="form-text text-muted">searching...</small>-->
+              <img *ngIf="searching" src="assets/img/user/loading.gif" alt="Loading Icon">
+              <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Customer Number
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input  value="{{ model | json }}"  name="custnumber" id="custnumber"  type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            Account Number
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input id="accountnumber" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Customer Name
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input id="customername"  type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            Account Balance
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input id="accountbalance" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Loan Settlement Account
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input id="loansettlementacc" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            File Number
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input id="filenumber" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Cancel Comment
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input type="text" id="cancelcomment" class="form-control" >
+            </div>
+          </div>
+          <div class="col-md-3">
+            Region
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <ng-select id="region" name="region" >
+                <ng-option >Nairobi
+                </ng-option>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Stage Date
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <div class="input-group">
+                <input type="text" placeholder="Dateinput" class="form-control"
+                       #dp="bsDatepicker" bsDatepicker  >
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary"  type="button"><span><i
+                    class="fa fa-calendar"></i>
+                    </span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            Date Input
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <div class="input-group">
+                <input type="text" placeholder="Dateinput" class="form-control"
+                       #dp="bsDatepicker" bsDatepicker  >
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary"  type="button"><span><i
+                    class="fa fa-calendar"></i>
+                    </span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Owner
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input type="text" id="owner" class="form-control" >
+            </div>
+          </div>
+          <div class="col-md-3">
+            Town
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <ng-select id="town" name="region" >
+                <ng-option >Nairobi
+                </ng-option>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+          <div class="col-xl-2 col-md-3">
+            Address
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input type="text" id="address" class="form-control" >
+            </div>
+          </div>
+          <div class="col-md-3">
+            NewStatus
+          </div>
+          <div class="col-md-3">
+            <div class="col-md-12">
+              <input type="text" id="newstatus" class="form-control" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit"  class="btn btn-sm btn-primary"><i
+          class="fa fa-dot-circle-o"></i> Submit</button>
+        <a type="reset" class="btn btn-sm btn-danger" [routerLink]="['/debtcollectors/allcases']" ><i class="fa fa-ban"></i> Reset</a>
+      </div>
+    </form>
+    <!--<pre>{{actionForm.valid | json}}</pre>
+    <pre>{{actionForm.value | json}}</pre>-->
+  </div>
 </div>
+
+

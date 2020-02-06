@@ -28,6 +28,14 @@
           </tbody>
         </table>
         <!--        end of table responsible-->
+
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <button disabled="" *ngIf="!guarantors?.length" class="btn btn-danger">!! No Guarantors Available !!</button>
+            </div>
+          </div>
+        </div>
       </div>
     </ng-template>
   </ngb-tab>

@@ -1,9 +1,36 @@
+
 <div class="content-heading">
-    <div>Debt Collectors
-        <small>ALL cases</small></div>
+  <div>DEBT COLLECTORS
+    <small>all cases</small></div>
 </div>
-<div class="container-fluid">
-    <div class="col-4 col-xl-12">
-        
-    </div>
+<button  [routerLink]="['/debtcollectors/newcase']" class="mb-1 btn btn-success btn-sm" type="button">New</button>
+
+<div class="card card-default">
+  <div class="col-xl-12">
+
+    <ag-grid-angular
+      #agGrid
+      style="width: 100%; height: 550px;"
+      id="myGrid"
+      class="ag-theme-balham"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowModelType]="rowModelType"
+      [maxBlocksInCache]="maxBlocksInCache"
+      [animateRows]="true"
+      [floatingFilter]="true"
+      [statusBar]="statusBar"
+      [rowData]="rowData"
+      [pagination]="true"
+      [paginationAutoPageSize]="true"
+      (rowClicked)='onRowDoubleClicked($event)'
+      (gridReady)="onGridReady($event)"
+      [pivotPanelShow]="pivotPanelShow"
+      [sideBar]="true"
+      [enableRangeSelection]="true"
+      [rowDragManaged]="true"
+      [modules]="modules"
+    ></ag-grid-angular>
+
+  </div>
 </div>

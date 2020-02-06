@@ -23,7 +23,7 @@ export class MyallocationsComponent implements OnInit {
   // }
 
   public gridOptions: GridOptions;
-
+  private statusBar;
   public gridApi;
   public gridColumnApi;
   public columnDefs;
@@ -149,6 +149,21 @@ export class MyallocationsComponent implements OnInit {
       enableRowGroup: true,
       enablePivot: true,
       pivot: true
+    };
+    this.statusBar = {
+      statusPanels: [
+        {
+          statusPanel: 'agTotalAndFilteredRowCountComponent',
+          align: 'left'
+        },
+        {
+          statusPanel: 'agTotalRowCountComponent',
+          align: 'center'
+        },
+        { statusPanel: 'agFilteredRowCountComponent' },
+        { statusPanel: 'agSelectedRowCountComponent' },
+        { statusPanel: 'agAggregationComponent' }
+      ]
     };
   }
 

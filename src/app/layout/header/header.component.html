@@ -200,14 +200,15 @@
 
 
         <li class="nav-item dropdown">
-            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><em class="icon-user"></em>
-                {{user.username}} | {{user.role}} <b class="caret"></b></a>
+            <a  data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><em class="icon-emotsmile"></em>&nbsp;
+              <b> {{time2}},  {{user.username}} | {{user.role}} </b> <b class="caret"></b></a>
+<!--          <em class="icon-emotsmile"></em>-->
             <ul class="dropdown-menu">
                 <li><a href="#" class="dropdown-item"><i class="fa fas-user-o"></i> Profile</a></li>
                 <li><a href="#" class="dropdown-item"><i class="fa fas-calendar-o"></i> Calendar</a></li>
                 <li><a href="#" class="dropdown-item"><i class="fa fas-sliders"></i> Settings</a></li>
                 <li class="divider dropdown-divider"></li>
-                <li><a href="#" (click)="logout()" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+                <li><a  (click)="logout()" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> Logout</a>
                 </li>
             </ul>
         </li>

@@ -29,9 +29,13 @@ export class HeaderComponent implements OnInit {
     str: string;
     str1: string;
     str2: string;
+    time: any;
+    time2: any;
+
 
     isNavSearchVisible: boolean;
     @ViewChild('fsbutton') fsbutton;  // the fullscreen button
+
 
     constructor(
         public menu: MenuService,
@@ -48,6 +52,7 @@ export class HeaderComponent implements OnInit {
 
       this.userdata = JSON.parse(localStorage.getItem('currentUser'));
       this.userperm = JSON.parse(localStorage.getItem('userpermission'));
+      this.time = this.getGreetings();
 
       this.user = {
           picture: 'assets/img/user/coop.jpg',
@@ -66,7 +71,7 @@ export class HeaderComponent implements OnInit {
         this.isNavSearchVisible = false;
 
         const ua = window.navigator.userAgent;
-        if (ua.indexOf('MSIE ') > 0 || !!ua.match(/Trident.*rv\:11\./)) { // Not supported under IE
+        if (ua.indexOf('MSIE ') > 0 || !!ua.match(/Trident.*rv:11\./)) { // Not supported under IE
             this.fsbutton.nativeElement.style.display = 'none';
         }
 
@@ -79,6 +84,27 @@ export class HeaderComponent implements OnInit {
         });
 
     }
+
+
+  getGreetings() {
+    const data = [
+        [0, 4, 'Hi Early Bird'],
+        [5, 11, 'Good Morning'],          // Store messages in an array
+        [12, 17, 'Good Afternoon'],
+        [18, 24, 'Good Evening']
+      ],
+      hr = new Date().getHours();
+
+    for (let i = 0; i < data.length; i++) {
+      if (hr >= data[i][0] && hr <= data[i][1]) {
+         this.time = JSON.stringify(data[i][2]);
+        this.time2 = JSON.parse(this.time);
+
+           console.log(JSON.parse(this.time));
+      }
+    }
+  }
+
 
     toggleUserBlock(event) {
         event.preventDefault();
@@ -99,6 +125,7 @@ export class HeaderComponent implements OnInit {
           const obj: any = JSON.parse(this.str);
           this.totalBrokenPtps = obj.data[0].TOTAL;
           console.log(typeof obj.data[0].TOTAL);
+          console.log(obj.data);
 
         }, error => {
           console.log(error);
