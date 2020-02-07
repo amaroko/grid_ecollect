@@ -23,6 +23,7 @@ export class NotesComponent implements OnInit {
 
 
   public gridOptions: GridOptions;
+  private rowHeight;
   private statusBar;
   public gridApi;
   public gridColumnApi;
@@ -76,12 +77,12 @@ export class NotesComponent implements OnInit {
 
 
       // domLayout: 'autoHeight',
-      rowSelection: 'single',
+      rowSelection: 'multiple',
       rowModelType: 'normal',
       // rowModelType: 'infinite',
 
       pagination: true,
-      paginationPageSize: 20,
+      paginationPageSize: 50,
 
       onGridReady: (params) => {
 
@@ -121,12 +122,14 @@ export class NotesComponent implements OnInit {
       },
       {
         field: 'NOTEMADE',
-        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true, width: 360,
+        autoHeight: true,
+        width: 220,
+        filter: 'agTextColumnFilter', filterParams: { newRowsAction: 'keep' }, resizable: true,
       },
       {
         field: 'NOTEDATE',
         filter: 'agTextColumnFilter',
-        filterParams: { newRowsAction: 'keep', browserDatePicker: true, }, resizable: true, valueFormatter: this.dateFormatter,
+        filterParams: { newRowsAction: 'keep', browserDatePicker: true, }, valueFormatter: this.dateFormatter,
 
       },
       {
@@ -140,16 +143,19 @@ export class NotesComponent implements OnInit {
     ];
     this.sortingOrder = ['desc', 'asc', null ];
     this.defaultColDef = {
+      cellStyle: { 'white-space': 'normal' },
       width: 120,
       resizable: true,
       sortable: true,
       floatingFilter: true,
       unSortIcon: true,
       suppressResize: false,
+      autoHeight: true,
       enableRowGroup: true,
       enablePivot: true,
       pivot: true
     };
+    this.rowHeight = 275;
     this.statusBar = {
       statusPanels: [
         {
@@ -167,6 +173,9 @@ export class NotesComponent implements OnInit {
     };
 
 
+  }
+  onColumnResized() {
+    this.gridApi.resetRowHeights();
   }
 
   ngOnInit() {

@@ -2,38 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/MAROX.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/dateselector/dateselector.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/dateselector/dateselector.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/dateselector/dateselector.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/dateselector/dateselector.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/footer/footer.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout/layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/layout.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/allcases/allcases.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/allcases/allcases.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/allcases/allcases.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/allcases/allcases.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/debtcollectors.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/debtcollectors.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activitylog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/collaterals/collaterals.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/collaterals/collaterals.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/custcontacts/custcontacts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/custcontacts/custcontacts.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/files/files.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/files/files.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/guarantors/guarantors.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/guarantors/guarantors.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/notes/notes.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/ptps/ptps.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/ptps/ptps.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/pages.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/pages.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/myallocations/myallocations.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/work/ptps/ptps.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/ptps/ptps.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/work/viewall/viewall.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/viewall/viewall.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/work/viewall/viewall.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/work/viewall/viewall.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/ecol.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/ecol.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +145,7 @@
       <workItem from="1580417848918" duration="10076000" />
       <workItem from="1580515278266" duration="1179000" />
       <workItem from="1580782375688" duration="1522000" />
-      <workItem from="1580934514291" duration="16011000" />
+      <workItem from="1580934514291" duration="22115000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -231,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577130831933</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="export button added">
+      <created>1581020850822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1581020850822</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +229,8 @@
     <MESSAGE value="major activitylog changes1" />
     <MESSAGE value="activitylog buttons fixed" />
     <MESSAGE value="ecollect changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="ecollect changes" />
+    <MESSAGE value="export button added" />
+    <option name="LAST_COMMIT_MESSAGE" value="export button added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Notifications" timestamp="1577047452157">
@@ -265,10 +245,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1580974079971" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1577130827907">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1581020833836">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1577130827907" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1581020833836" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1580516360207">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -297,10 +277,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1579179976739" />
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1577130835726">
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1581020881580">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1577130835726" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1581020881580" />
     <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579013184972">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

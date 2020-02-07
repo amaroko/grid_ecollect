@@ -99,10 +99,10 @@
 <!--grid-->
   <ag-grid-angular #agGrid id="myGrid" class="ag-theme-balham" style="width: 100%; height: 550px;"
                    [columnDefs]="columnDefs"
-                   [defaultColDef]="defaultColDef" [paginationAutoPageSize]="true"
+                   [defaultColDef]="defaultColDef"
                    [gridOptions]="gridOptions" [pagination]="true" [statusBar]="statusBar" [floatingFilter]="true" [rowData]="rowData"
                    [modules]="modules" [pivotPanelShow]="pivotPanelShow" [sideBar]="true"
-                   [animateRows]="true" >
+                   [animateRows]="true" (columnResized)="onColumnResized()">
 
   </ag-grid-angular>
 <!--  end of grid-->
