@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
-    </list>
+    <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +149,7 @@
       <workItem from="1581413047784" duration="15075000" />
       <workItem from="1581442080614" duration="1311000" />
       <workItem from="1581621668702" duration="2423000" />
-      <workItem from="1581747492377" duration="77059000" />
+      <workItem from="1581747492377" duration="77266000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -240,7 +235,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582101148573</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="icon added on modal">
+      <created>1582140663948</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1582140663948</updated>
+    </task>
+    <task id="LOCAL-00014" summary="icon added on modal">
+      <created>1582140722120</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1582140722120</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +272,8 @@
     <MESSAGE value="cell text wrapping added" />
     <MESSAGE value="Ecollect lockscreen added" />
     <MESSAGE value="added lockscreen button on header" />
-    <option name="LAST_COMMIT_MESSAGE" value="added lockscreen button on header" />
+    <MESSAGE value="icon added on modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="icon added on modal" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Notifications" timestamp="1577047452157">
@@ -282,10 +292,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1580974079971" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1582140683882">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1582140720026">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1582140683882" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1582140720026" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1581407725327">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
