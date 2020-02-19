@@ -20,8 +20,8 @@
     <div class="card-header">
       <strong>New Debt Collector activity </strong> capture
     </div>
-    <form #f="ngForm"   novalidate autocomplete="off">
-      <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="onSubmitted($event)"   autocomplete="off" novalidate>
+      <div #subdata ="ngModelGroup" class="card-body" ngModelGroup="subdata">
         <div class="row">
           <div class="col-xl-2 col-md-3">
             Search Customer Number
@@ -29,11 +29,11 @@
           <div class="col-md-9">
             <div class="col-md-12">
               <label for="typeahead-http"></label>
-              <input [(ngModel)]="model" id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed"
-                                                          [ngbTypeahead]="search"  [resultFormatter]="resultFormatBandListValue" [inputFormatter]="inputFormatBandListValue" placeholder="Search" />
+              <input [(ngModel)]="rows" [class.is-invalid]="searchFailed" [inputFormatter]="inputFormatBandListValue" [ngbTypeahead]="search" [resultFormatter]="resultFormatBandListValue" class="form-control" id="typeahead-http"
+                                                          name="Search"  placeholder="Search" type="text" value="search" />
 <!--              <small *ngIf="searching" class="form-text text-muted">searching...</small>-->
-              <img *ngIf="searching" src="assets/img/user/loading.gif" alt="Loading Icon">
-              <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+              <img *ngIf="searching" alt="Loading Icon" src="assets/img/user/loading.gif">
+              <div *ngIf="searchFailed" class="invalid-feedback">Sorry, suggestions could not be loaded.</div>
             </div>
           </div>
         </div>
@@ -44,15 +44,16 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input  value="{{ model | json }}"  name="custnumber" id="custnumber"  type="text" class="form-control">
+              <input  #customernumber="ngModel"  [(ngModel)]="rows"  [inputFormatter]="inputFormatBandListValue2" [ngbTypeahead]="search" class="form-control" id="custnumber" name="custnumber" required="" type="text">
             </div>
+            <p *ngIf="!customernumber.valid && customernumber.touched" class="text-warning"> Please Enter Something</p>
           </div>
           <div class="col-md-3">
             Account Number
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input id="accountnumber" type="text" class="form-control">
+              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue4" [ngbTypeahead]  class="form-control" id="accountnumber" name="accountnumber" type="text">
             </div>
           </div>
         </div>
@@ -63,7 +64,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input id="customername"  type="text" class="form-control">
+              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue3" [ngbTypeahead] class="form-control" id="customername"  name="customername" type="text">
             </div>
           </div>
           <div class="col-md-3">
@@ -71,7 +72,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input id="accountbalance" type="text" class="form-control">
+              <input class="form-control" id="accountbalance" name="accountbalance" ngModel type="text">
             </div>
           </div>
         </div>
@@ -82,7 +83,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input id="loansettlementacc" type="text" class="form-control">
+              <input  [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue5" [ngbTypeahead] class="form-control" id="loansettlementacc" name="loansettlementacc" type="text">
             </div>
           </div>
           <div class="col-md-3">
@@ -90,7 +91,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input id="filenumber" type="text" class="form-control">
+              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue6" [ngbTypeahead] class="form-control" id="filenumber" name="filenumber" type="text">
             </div>
           </div>
         </div>
@@ -101,7 +102,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input type="text" id="cancelcomment" class="form-control" >
+              <input class="form-control" id="cancelcomment" name="cancelcomment" ngModel type="text" >
             </div>
           </div>
           <div class="col-md-3">
@@ -109,10 +110,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <ng-select id="region" name="region" >
-                <ng-option >Nairobi
-                </ng-option>
-              </ng-select>
+              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue7" [ngbTypeahead]="null" class="form-control" id="region" name="region" type="text" >
             </div>
           </div>
         </div>
@@ -124,8 +122,8 @@
           <div class="col-md-3">
             <div class="col-md-12">
               <div class="input-group">
-                <input type="text" placeholder="Dateinput" class="form-control"
-                       #dp="bsDatepicker" bsDatepicker  >
+                <input bsDatepicker class="form-control" name="stagedate" placeholder="Dateinput"
+                        type="text"  >
                 <div class="input-group-append">
                   <button class="btn btn-outline-primary"  type="button"><span><i
                     class="fa fa-calendar"></i>
@@ -140,8 +138,8 @@
           <div class="col-md-3">
             <div class="col-md-12">
               <div class="input-group">
-                <input type="text" placeholder="Dateinput" class="form-control"
-                       #dp="bsDatepicker" bsDatepicker  >
+                <input #dp="bsDatepicker" bsDatepicker class="form-control" name="dateinput" ngModel
+                       placeholder="Dateinput" type="text"  >
                 <div class="input-group-append">
                   <button class="btn btn-outline-primary"  type="button"><span><i
                     class="fa fa-calendar"></i>
@@ -158,7 +156,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input type="text" id="owner" class="form-control" >
+              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue10" [ngbTypeahead]="search" class="form-control" id="owner" name="region" name="owner" type="text" >
             </div>
           </div>
           <div class="col-md-3">
@@ -166,7 +164,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <ng-select id="town" name="region" >
+              <ng-select id="town"  name="region" ngModel >
                 <ng-option >Nairobi
                 </ng-option>
               </ng-select>
@@ -180,7 +178,7 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input type="text" id="address" class="form-control" >
+              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue8" [ngbTypeahead] class="form-control" id="address" name="address" type="text" >
             </div>
           </div>
           <div class="col-md-3">
@@ -188,20 +186,26 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input type="text" id="newstatus" class="form-control" >
+              <input class="form-control" id="newstatus" name="newstatus" ngModel type="text" >
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer">
-        <button type="submit"  class="btn btn-sm btn-primary"><i
+        <button [disabled]="!f.valid" class="btn btn-sm btn-primary"  type="submit"><i
           class="fa fa-dot-circle-o"></i> Submit</button>
-        <a type="reset" class="btn btn-sm btn-danger" [routerLink]="['/debtcollectors/allcases']" ><i class="fa fa-ban"></i> Reset</a>
+        <a [routerLink]="['/debtcollectors/allcases']" class="btn btn-sm btn-danger" type="reset" ><i class="fa fa-ban"></i> Reset</a>
+       <div *ngIf="submitted"><p>Customer Number:</p>
+        <p>Account Number: {{accountnumber}}</p>
+         <p>Customer Number: {{custnumber}}</p>
+        <p>Customer Name: {{customername}}</p>
+        <p>Loan Settlement Account: {{loansettlementacc}}</p>
+        <p>Region: {{region}}</p>
+       </div>
       </div>
     </form>
     <!--<pre>{{actionForm.valid | json}}</pre>
     <pre>{{actionForm.value | json}}</pre>-->
   </div>
 </div>
-
 

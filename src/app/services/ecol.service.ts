@@ -754,6 +754,19 @@ export class EcolService {
     }
   }
 
+  ifLoggedtimeout() {
+    if (!localStorage.getItem('currentUser')) {
+      swal({title: 'You\'re Not Logged In',
+        imageUrl: 'assets/img/user/notlogg.png',
+        text: 'Kindly, log in to continue!',
+
+        confirmButtonColor: '#7ac142',
+        confirmButtonText: 'Okay'});
+      this.router.navigate( ['/login'] );
+      return false;
+    }
+  }
+
   ifclosed() {
     if (!sessionStorage.getItem('currentUser')) {
       swal({title: 'You\'re Not Logged In',
@@ -766,4 +779,18 @@ export class EcolService {
       return false;
     }
   }
+
+  ifclosedtimeout() {
+    if (!sessionStorage.getItem('currentUser')) {
+      swal({title: 'You\'re Not Logged In',
+        imageUrl: 'assets/img/user/notlogg.png',
+        text: 'Kindly, log in to continue!',
+
+        confirmButtonColor: '#7ac142',
+        confirmButtonText: 'Okay'});
+      this.router.navigate( ['/login'] );
+      return false;
+    }
+  }
+
 }

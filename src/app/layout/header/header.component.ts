@@ -90,8 +90,8 @@ export class HeaderComponent implements OnInit {
     const data = [
         [0, 4, 'Hi Early Bird'],
         [5, 11, 'Good Morning'],          // Store messages in an array
-        [12, 17, 'Good Afternoon'],
-        [18, 24, 'Good Evening']
+        [12, 16, 'Good Afternoon'],
+        [17, 24, 'Good Evening']
       ],
       hr = new Date().getHours();
 

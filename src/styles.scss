@@ -35,11 +35,12 @@
 
 //== Bootstrap
 @import "./app/shared/styles/bootstrap.scss";
+
 //== Application
 @import "./app/shared/styles/app.scss";
 
 //this is a different skin css
-//@import "~styles/bootstrap.min.css";
+//@import "../node_modules/ubuntu/bootstrap.min.css";
 //@import "~styles/buttons.css";
 .validation-error {
     color: red;

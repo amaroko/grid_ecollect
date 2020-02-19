@@ -37,7 +37,7 @@
                 <option *ngFor="let p of party" [value]="p.partyid">{{p.party}}</option>
               </select>-->
               <ng-select id="party" name="party" formControlName="party" placeholder="Select party"
-                (ngModelChange)="changeParty(actionForm.value)">
+                (ngModelChange)="changeParty(actionForm.value)" required>
                 <ng-option *ngFor="let p of party" [value]="p.partyid">{{p.party}}</ng-option>
               </ng-select>
             </div>
@@ -47,9 +47,9 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <ng-select id="reason" name="reason" formControlName="reason" placeholder="Select reason"
+              <ng-select   id="reason" name="reason" formControlName="reason"
                 [ngClass]="{ 'is-invalid': f.reason.errors }" (ngModelChange)="changeReason(actionForm.value.reason)">
-                <ng-option *ngFor="let ex of excuse" [value]="ex.excuse">{{ex.excuse}}</ng-option>
+                <ng-option *ngFor="let ex of excuse" value="">{{ex.excuse}}</ng-option>
               </ng-select>
             </div>
           </div>

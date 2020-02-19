@@ -25,7 +25,7 @@ import { SendLetterComponent } from './actions/sendletter.component';
 import { MultipleptpComponent } from './multipleptp/multipleptp.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { ActivityLogComponent } from './activitylog/activitylog.component';
-import { ActivityActionComponent } from '../pages/activitylog/activityaction/activityaction.component';
+import { ActivityActionComponent } from './activitylog/activityaction/activityaction.component';
 import { ActivityHomeComponent } from '../pages/activitylog/activityhome/activityhome.component';
 import { AccPlanComponent } from '../pages/activitylog/accplan/accplan.component';
 import { CustContactsComponent } from '../pages/activitylog/custcontacts/custcontacts.component';

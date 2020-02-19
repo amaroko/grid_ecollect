@@ -1,0 +1,12 @@
+//makes the background blur
+.overlay.nsm-overlay-open{
+  backdrop-filter: blur(5px) grayscale(90%)!important;
+  //-webkit-backdrop-filter: blur(5px) grayscale(90%)!important;
+  //filter: url(#blur);
+
+
+}
+
+.div.overlay.nsm-overlay-open{
+  filter: blur(5px) grayscale(90%)!important;
+}

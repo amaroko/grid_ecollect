@@ -12,6 +12,36 @@
     justify-content: space-around;
 }
 
+//.ng-select.ng-untouched.disabled {
+//  border: 1px solid #dde6e9;
+//}
+
+.ng-select.ng-select-disabled{
+  border: 1px solid #dde6e9;
+}
+//.ng-select.ng-select-single.ng-select-searchable.ng-select-clearable.ng-select-bottom.ng-touched.ng-dirty.ng-invalid{
+//  border: 1px solid #dde6e9;
+//}
+
+//.ng-select{
+//  border: 2px solid red;
+//}
+//.ng-select.ng-select-single.ng-select-searchable.ng-select-clearable.ng-select-bottom.ng-touched.ng-invalid{
+//  border: 2px solid red;
+//}
+//.ng-select.ng-select-single.ng-select-searchable.ng-select-clearable.ng-pristine.ng-invalid.is-invalid.ng-select-bottom.ng-touched{
+//  border: 2px solid red;
+//}
+//.ng-select.disabled.ng-untouched{
+//  border: 2px solid red;
+//  border: 1px solid #dde6e9;
+//}
+
+//.ng-select.ng-touched{
+//border: 1px solid #dde6e9;
+//}
+
+
 /* Custom Theme */
 .theme-angle {
     .bs-datepicker-head {

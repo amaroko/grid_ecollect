@@ -488,6 +488,7 @@ export class ActivityActionComponent implements OnInit {
     } else {
       this.actionForm.controls.rfdother.disable();
     }
+    console.log(value);
   }
 
   changePtp(value) {
