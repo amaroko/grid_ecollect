@@ -210,7 +210,7 @@ export class AppComponent implements OnInit {
         });
         //
       } else {
-        this.error = 'User not created on E-Collect or this is not your session';
+        this.error = 'User not created on E-Collect or This is not your session';
         this.loading = false;
       }
 

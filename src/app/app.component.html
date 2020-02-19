@@ -11,6 +11,9 @@
 <ngx-smart-modal [escapable]="false" [closable]="false" [dismissable]="false" #myModal identifier="lockModal">
   <div class="card b0">
     <div class="card-body">
+      <div style="text-align: center!important;">
+      <img style="max-width:80% !important; height:80px !important; margin-top:6px !important;border-radius: 50%;" class="img-fluid" src="assets/img/user/coop.jpg" alt="App Logo" />
+      </div>
       <p class="text-center">Please login to unlock your screen.</p>
       <form [formGroup]="vallForm" role="form" name="loginFormm" novalidate="" (submit)="submitFormm($event, vallForm.value)">
   <div class="form-group">
@@ -47,7 +50,14 @@
     </div>
   </div>
         <div class="loader" *ngIf="loading"></div>
-        <div *ngIf="error" class="alert alert-danger text-center">{{error}}</div>
+        <div *ngIf="error" class="alert alert-danger fade show">
+          <span class="close" data-dismiss="alert">×</span>
+          <strong>{{error}}</strong>
+        </div>
+
+
+
+
         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
     Not <b>{{username}}</b>? Click <a href="#" (click)="newsession()" tooltip="Start New Session" class="text-success">here</a> to start New Session.
   </div>

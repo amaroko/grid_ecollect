@@ -46,6 +46,16 @@
     color: red;
 }
 
+.swal2-popup {
+  font-size: 1em !important;
+  height: 50vh;
+  width: 30vh;
+
+}
+.swal2-header{
+  font-size: 1em !important;
+}
+
 @import "../node_modules/ng2-slim-loading-bar/style.css";
 
 @import "~@ng-select/ng-select/themes/default.theme.css";
