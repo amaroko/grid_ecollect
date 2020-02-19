@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e962c704-3d16-40b4-b140-21d4a94711eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/debtcollectors/newcase/newcase.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/activitylog/activityaction/activityaction.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/lock/lock.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/lock/lock.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/routes/pages/pages.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routes/pages/pages.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/ecol.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/ecol.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/styles/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/styles/bootstrap.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +153,7 @@
       <workItem from="1581413047784" duration="15075000" />
       <workItem from="1581442080614" duration="1311000" />
       <workItem from="1581621668702" duration="2423000" />
-      <workItem from="1581747492377" duration="68300000" />
+      <workItem from="1581747492377" duration="70347000" />
     </task>
     <task id="LOCAL-00001" summary="loans,ecredit,cards grids changed">
       <created>1576506852777</created>
@@ -238,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581050994613</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ecollect lockscreen added">
+      <created>1582098555263</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1582098555263</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +253,8 @@
     <MESSAGE value="ecollect changes" />
     <MESSAGE value="export button added" />
     <MESSAGE value="cell text wrapping added" />
-    <option name="LAST_COMMIT_MESSAGE" value="cell text wrapping added" />
+    <MESSAGE value="Ecollect lockscreen added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ecollect lockscreen added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="27" key="#Notifications" timestamp="1577047452157">
@@ -278,10 +273,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1580974079971" />
-    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1581050984931">
+    <state x="307" y="0" key="CommitChangelistDialog2" timestamp="1582098535040">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1581050984931" />
+    <state x="307" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1582098535040" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1581407725327">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -310,10 +305,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1579179976739" />
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1581051003106">
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2" timestamp="1582098570566">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1581051003106" />
+    <state x="275" y="90" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1582098570566" />
     <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579013184972">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

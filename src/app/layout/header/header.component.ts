@@ -7,6 +7,7 @@ import { MenuService } from '../../core/menu/menu.service';
 import { EcolService } from '../../services/ecol.service';
 import swal from 'sweetalert2';
 import { Router} from '@angular/router';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
     selector: 'app-header',
@@ -39,6 +40,7 @@ export class HeaderComponent implements OnInit {
 
     constructor(
         public menu: MenuService,
+        public ngxSmartModalService: NgxSmartModalService,
         public userblockService: UserblockService,
         public settings: SettingsService,
         public ecolService: EcolService,
@@ -200,4 +202,9 @@ export class HeaderComponent implements OnInit {
             }
         });
     }
+  opentimeoutModal() {
+    // open modal
+    this.ngxSmartModalService.getModal('lockModal').open();
+    localStorage.setItem('timeout', '1'); // creates timeout tracker
+  }
 }
