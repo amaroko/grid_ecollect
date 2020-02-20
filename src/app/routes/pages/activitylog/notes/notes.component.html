@@ -75,7 +75,7 @@
 
 <div *ngIf="isSelected('flagged')">
   <ul class="timeline">
-    <li *ngFor="let note of flaggedNotes | paginate: { itemsPerPage: 3, currentPage: p }">
+    <li *ngFor="let note of flaggedNotes | paginate: { itemsPerPage: 5, currentPage: p }">
       <a href="#"><small>{{note.owner}} {{note.notesrc}} on Account {{note.accnumber}}</small></a>
       <a href="#" class="float-right">{{note.notedate}}</a>
       <p>{{note.notemade}}
