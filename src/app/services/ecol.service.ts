@@ -10,10 +10,25 @@ import { forkJoin } from 'rxjs';
 })
 export class EcolService {
 
+  SERVER_URL = environment.bulknotes; // url for php bulknotes
+  SERVER_URL2 = environment.filesuploads; // url for php bulknotes
   constructor(
     private httpClient: HttpClient,
     private router: Router
-    ) { }
+  ) {
+  }
+
+  public uploadFile(data) {
+    const uploadURL = `${this.SERVER_URL}/import_excel.php`;
+
+    return this.httpClient.post<any>(uploadURL, data);
+  }
+
+  public uploadFile2(data) {
+    const uploadURL = `${this.SERVER_URL2}/filesupload.php`;
+
+    return this.httpClient.post<any>(uploadURL, data);
+  }
 
   loader() {
 
@@ -29,6 +44,10 @@ export class EcolService {
 
   submitGuarantor(body) {
     return this.httpClient.post(environment.api + '/api/guarantordetails', body);
+  }
+
+  newInsurance(body) {
+    return this.httpClient.post(environment.api + '/api/newinsurance', body);
   }
 
   newmarketer(body) {
@@ -135,6 +154,7 @@ export class EcolService {
     const url = environment.api + '/api/notehis/updatenote';
     return this.httpClient.post(url, body);
   }
+
 
   getanote(id) {
     const url = environment.api + '/api/notehis/' + id;
@@ -453,6 +473,19 @@ export class EcolService {
   postteles(data) {
     return this.httpClient.post<any>(environment.api + '/api/teles', data);
   }
+
+  postinsurance(data) {
+    return this.httpClient.post<any>(environment.nodeapi + '/insurance/insert', data);
+  }
+
+  updateinsurance(data) {
+    return this.httpClient.post<any>(environment.nodeapi + '/insurance/update', data);
+  }
+
+  deleteinsurance(id) {
+    return this.httpClient.post<any>(environment.nodeapi + '/insurance/delete', id);
+  }
+
 
   planmemo(planid) {
     return this.httpClient.get<any>(environment.api + '/api/tbl_s_plans/' + planid);

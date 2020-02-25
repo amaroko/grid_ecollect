@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../../../../core/settings/settings.service';
+ import {Component, OnInit} from '@angular/core';
+ import {SettingsService} from '../../../../core/settings/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EcolService } from '../../../../services/ecol.service';
 import { DataService } from '../../../../services/data.service';

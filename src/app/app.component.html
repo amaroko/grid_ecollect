@@ -12,42 +12,52 @@
   <div class="card b0">
     <div class="card-body">
       <div style="text-align: center!important;">
-      <img style="max-width:80% !important; height:80px !important; margin-top:6px !important;border-radius: 50%;" class="img-fluid" src="assets/img/user/coop.jpg" alt="App Logo" />
+        <img style="max-width:80% !important; height:80px !important; margin-top:6px !important;border-radius: 50%;"
+             class="img-fluid" src="assets/img/user/coop.jpg" alt="App Logo"/>
       </div>
       <p class="text-center">Please login to unlock your screen.</p>
-      <form [formGroup]="vallForm" role="form" name="loginFormm" novalidate="" (submit)="submitFormm($event, vallForm.value)">
-  <div class="form-group">
-    <div class="input-group with-focus">
-      <input class="form-control border-right-0" id="username" type="text" placeholder="username" name="username" formControlName="username" />
-      <div class="input-group-append">
+      <form [formGroup]="vallForm" role="form" name="loginFormm" novalidate=""
+            (submit)="submitFormm($event, vallForm.value)">
+        <div class="form-group">
+          <div class="input-group with-focus">
+            <input class="form-control border-right-0" id="username" type="text" placeholder="username" name="username"
+                   formControlName="username"/>
+            <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-user"></em>
                                 </span>
-      </div>
-    </div>
-    <div class="text-danger" *ngIf="vallForm.controls['username'].hasError('required') && (vallForm.controls['username'].dirty || vallForm.controls['username'].touched)">Username is required</div>
-  </div>
-  <div class="form-group">
-    <div class="input-group with-focus">
-      <input class="form-control border-right-0" id="password" type="password" placeholder="password" name="password" formControlName="password" />
-      <div class="input-group-append">
+            </div>
+          </div>
+          <div class="text-danger"
+               *ngIf="vallForm.controls['username'].hasError('required') && (vallForm.controls['username'].dirty || vallForm.controls['username'].touched)">
+            Username is required
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group with-focus">
+            <input class="form-control border-right-0" id="password" type="password" placeholder="password"
+                   name="password" formControlName="password"/>
+            <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-lock"></em>
                                 </span>
-      </div>
-    </div>
-    <div class="text-danger" *ngIf="vallForm.controls['password'].hasError('required') && (vallForm.controls['password'].dirty || vallForm.controls['password'].touched)">Password is required</div>
-  </div>
-  <div class="d-flex">
-    <!--<div class="mt-1">
-        <a class="text-muted" [routerLink]="'/recover'">
-            <span class="text-sm">Forgot your password?</span>
-        </a>
-    </div>-->
-    <div class="ml-auto">
-      <button [disabled]="!vallForm.valid" class="btn btn-sm btn-primary" type="submit">Unlock</button>
-    </div>
-  </div>
+            </div>
+          </div>
+          <div class="text-danger"
+               *ngIf="vallForm.controls['password'].hasError('required') && (vallForm.controls['password'].dirty || vallForm.controls['password'].touched)">
+            Password is required
+          </div>
+        </div>
+        <div class="d-flex">
+          <!--<div class="mt-1">
+              <a class="text-muted" [routerLink]="'/recover'">
+                  <span class="text-sm">Forgot your password?</span>
+              </a>
+          </div>-->
+          <div class="ml-auto">
+            <button [disabled]="!vallForm.valid" class="btn btn-sm btn-primary" type="submit">Unlock</button>
+          </div>
+        </div>
         <div class="loader" *ngIf="loading"></div>
         <div *ngIf="error" class="alert alert-danger fade show">
           <span class="close" data-dismiss="alert">×</span>
@@ -55,11 +65,10 @@
         </div>
 
 
-
-
         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
-    Not <b>{{username}}</b>? Click <a href="#" (click)="newsession()" tooltip="Start New Session" class="text-success">here</a> to start New Session.
-  </div>
+          Not <b>{{username}}</b>? Click <a href="#" (click)="newsession()" tooltip="Start New Session"
+                                            class="text-success">here</a> to start New Session.
+        </div>
       </form>
     </div>
   </div>

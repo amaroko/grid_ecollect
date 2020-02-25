@@ -6,7 +6,8 @@ import { DataService } from '../../../../services/data.service';
 import swal from 'sweetalert2';
 import { saveAs } from 'file-saver';
 import { environment } from '../../../../../environments/environment';
-import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
+import {FileUploader, FileItem, ParsedResponseHeaders} from 'ng2-file-upload';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 const URL = environment.filesapi;
 
@@ -17,6 +18,9 @@ const URL = environment.filesapi;
 })
 export class FilesComponent implements OnInit {
 
+  form: FormGroup;
+  uploadResponse;
+
   accnumber: string;
   custnumber: string;
 
@@ -25,7 +29,7 @@ export class FilesComponent implements OnInit {
   files: any = [];
   username: string;
   filetype: any = [
-    { filetype: 'Other' },
+    {filetype: 'Other'},
     { filetype: 'Demand Letter' },
     { filetype: 'Customer Correspondence' }
   ];
@@ -43,9 +47,10 @@ export class FilesComponent implements OnInit {
   }
 
   constructor(public settings: SettingsService,
-    private route: ActivatedRoute,
-    private ecolService: EcolService,
-    private dataService: DataService
+              private route: ActivatedRoute,
+              private ecolService: EcolService,
+              private dataService: DataService,
+              private formBuilder: FormBuilder,
   ) {
     //
     this.uploader.onBuildItemForm = (item, form) => {
@@ -63,8 +68,8 @@ export class FilesComponent implements OnInit {
     this.uploader.onSuccessItem = (item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any => {
       // success
       const obj = JSON.parse(response);
-      console.log(obj)
-      if(obj.success) {
+      console.log(obj);
+      if (obj.success) {
         for (let i = 0; i < obj.files.length; i++) {
           const bulk = {
             'accnumber': this.accnumber,
@@ -89,7 +94,7 @@ export class FilesComponent implements OnInit {
       } else {
         swal('Oooops!', 'unable to upload file!', 'error');
       }
-      
+
     };
 
     this.uploader.onErrorItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any => {
@@ -100,9 +105,12 @@ export class FilesComponent implements OnInit {
   ngOnInit() {
 
     /// check if logged!
+    this.form = this.formBuilder.group({
+      avatar: ['']
+    });
     this.ecolService.ifLogged();
     this.ecolService.ifclosed();
-    
+
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.username = currentUser.USERNAME;
 
@@ -134,5 +142,27 @@ export class FilesComponent implements OnInit {
       console.log(error.error);
       swal('Error!', ' Cannot download  file!', 'error');
     });
+  }
+
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.get('avatar').setValue(file);
+    }
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('avatar', this.form.get('avatar').value);
+
+    this.ecolService.uploadFile2(formData).subscribe(
+      (res) => {
+        this.uploadResponse = res;
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

@@ -218,7 +218,7 @@ export class NotesComponent implements OnInit {
   }
 
 
-dateFormatter(params) {
+  dateFormatter(params) {
   return moment(params.value).format('MM/DD/YYYY HH:mm');
 }
   getAll(cust) {

@@ -54,7 +54,6 @@ export class HeaderComponent implements OnInit {
 
       this.userdata = JSON.parse(localStorage.getItem('currentUser'));
       this.userperm = JSON.parse(localStorage.getItem('userpermission'));
-      this.time = this.getGreetings();
 
       this.user = {
           picture: 'assets/img/user/coop.jpg',
@@ -69,6 +68,7 @@ export class HeaderComponent implements OnInit {
         this.getbrokenptps(); // gets count of broken ptps
         this.getcardlettersdue(); // gets count of demand letters due for creditcards
         this.lettersdue();
+      this.getGreetings();
 
         this.isNavSearchVisible = false;
 

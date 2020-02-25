@@ -1,0 +1,195 @@
+<div class="content-heading">
+  <div>INSURANCE COMPANIES
+    <small>view all</small></div>
+</div>
+<button (click)="opennewInsuranceModal()" class="mb-1 btn btn-success btn-sm" type="button">New</button>
+
+<ag-grid-angular
+  #agGrid
+  style="width: 100%; height: 550px;"
+  id="myGrid"
+  class="ag-theme-balham"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [rowModelType]="rowModelType"
+  [maxBlocksInCache]="maxBlocksInCache"
+  [animateRows]="true"
+  [floatingFilter]="true"
+  [rowData]="rowData"
+  [pagination]="true"
+  [enableCellChangeFlash]="true"
+  [paginationAutoPageSize]="true"
+  (gridReady)="onGridReady($event)"
+  (rowClicked)='onRowDoubleClicked($event)'
+  [pivotPanelShow]="pivotPanelShow"
+  [sideBar]="true"
+  [statusBar]="statusBar"
+  [enableRangeSelection]="true"
+  [rowDragManaged]="true"
+  [modules]="modules"
+></ag-grid-angular>
+<ngx-smart-modal [dismissable]="false" #newInsurance identifier="newInsurance">
+  <!-- START card-->
+  <div class="card card-default">
+    <div class="card-header">Enter Insurance details</div>
+    <div class="card-body">
+      <form #newGuarantorForm="ngForm" class="form-horizontal" (ngSubmit)="onSubmit(newGuarantorForm)"
+            autocomplete="off">
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Insurance Name</label>
+          <div class="col-xl-6">
+            <input class="form-control" type="text" name="insurancename" id="insurancename"
+                   #insurancename="ngModel" [(ngModel)]="model.insurancename"
+                   required/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Physical Address</label>
+          <div class="col-xl-6">
+            <input class="form-control" type="text" name="physicaladdress" id="physicaladdress"
+                   #physicaladdress="ngModel" [(ngModel)]="model.physicaladdress" required/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Postal Address</label>
+          <div class="col-xl-6">
+            <input class="form-control" type="text" name="postaladdress" id="postaladdress"
+                   #postaladdress="ngModel" [(ngModel)]="model.postaladdress"
+                   [ngClass]="{ 'is-invalid': postaladdress.invalid }" required/>
+            <div class="validation-error" *ngIf="postaladdress.invalid && postaladdress.touched">postaladdress
+              is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Email Address</label>
+          <div class="col-xl-6">
+            <input class="form-control" type="text" name="emailaddress" id="emailaddress"
+                   #emailaddress="ngModel" [(ngModel)]="model.emailaddress"
+                   [ngClass]="{ 'is-invalid': emailaddress.invalid }" required/>
+            <div class="validation-error"
+                 *ngIf="emailaddress.invalid && emailaddress.touched">Emailaddress Name is
+              required
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Contact Person</label>
+          <div class="col-xl-6">
+            <input class="form-control" type="text" name="contactperson" id="contactperson"
+                   #contactperson="ngModel" [(ngModel)]="model.contactperson"
+                   [ngClass]="{ 'is-invalid': contactperson.invalid }" required/>
+            <div class="validation-error" *ngIf="contactperson.invalid && contactperson.touched">contactperson is
+              required
+            </div>
+          </div>
+        </div>
+        <!--            <div class="form-group row">-->
+        <!--              <label class="col-xl-3 col-form-label">Active</label>-->
+        <!--              <div class="d-flex align-items-center mb-3">-->
+        <!--                <div class="ml-auto">-->
+        <!--                  <label class="switch switch-lg m-0">-->
+        <!--                    <input type="checkbox" checked="checked" name="active" id="active"-->
+        <!--                           #active="ngModel" [(ngModel)]="model.active" />-->
+        <!--                    <span></span>-->
+        <!--                  </label>-->
+        <!--                </div>-->
+        <!--              </div>-->
+        <!--            </div>-->
+
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label"></label>
+          <div class="col-xl-6">
+            <button [disabled]="!newGuarantorForm.valid || !newGuarantorForm.dirty"
+                    class="btn btn-sm btn-outline-primary" type="submit">Submit
+            </button>
+            <button class="btn btn-sm btn-outline-danger" type="button"
+                    (click)="closenewInsuranceModal()">Back
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ngx-smart-modal>
+
+
+<ngx-smart-modal [dismissable]="false" #editInsurance identifier="editInsurance">
+  <!-- START card-->
+  <div class="card card-default">
+    <div class="card-header">Enter Insurance details</div>
+    <div class="card-body">
+      <form class="form-horizontal" [formGroup]="editnoteForm" (ngSubmit)="onUpdate()"
+            autocomplete="off">
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Insurance Id</label>
+          <div class="col-xl-6">
+            <input type="text" [(ngModel)]="model.ID" class="form-control" formControlName="editid" name="editid"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Insurance Name</label>
+          <div class="col-xl-6">
+            <input type="text" [(ngModel)]="model.INSURANCENAME" class="form-control"
+                   formControlName="editinsurancename" name="editinsurancename"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Physical Address</label>
+          <div class="col-xl-6">
+            <input type="text" [(ngModel)]="model.PHYSICALADDRESS" class="form-control"
+                   formControlName="editphysicaladdress" name="editphysicaladdress"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Postal Address</label>
+          <div class="col-xl-6">
+            <input class="form-control" [(ngModel)]="model.POSTALADDRESS" formControlName="editpostaladdress"
+                   name="editpostaladdress"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Email Address</label>
+          <div class="col-xl-6">
+            <input type="email" [(ngModel)]="model.EMAILADDRESS" class="form-control" formControlName="editemailaddress"
+                   name="editemailaddress"/>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label">Contact Person</label>
+          <div class="col-xl-6">
+            <input [(ngModel)]="model.CONTACTPERSON" class="form-control" formControlName="editcontactperson"
+                   name="editcontactperson"/>
+          </div>
+        </div>
+        <!--            <div class="form-group row">-->
+        <!--              <label class="col-xl-3 col-form-label">Active</label>-->
+        <!--              <div class="d-flex align-items-center mb-3">-->
+        <!--                <div class="ml-auto">-->
+        <!--                  <label class="switch switch-lg m-0">-->
+        <!--                    <input type="checkbox" checked="checked" name="active" id="active"-->
+        <!--                           #active="ngModel" [(ngModel)]="model.active" />-->
+        <!--                    <span></span>-->
+        <!--                  </label>-->
+        <!--                </div>-->
+        <!--              </div>-->
+        <!--            </div>-->
+
+        <div class="form-group row">
+          <label class="col-xl-3 col-form-label"></label>
+          <div class="col-xl-6">
+            <button
+              class="btn btn-sm btn-outline-primary" type="submit">Submit
+            </button>
+            <button class="btn btn-sm btn-outline-danger" type="button"
+                    (click)="closeeditInsuranceModal()">Back
+            </button>
+            <button (click)="deleteInsurance()" class="btn btn-sm btn-outline-danger" type="button">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ngx-smart-modal>
+

@@ -84,14 +84,76 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" [disabled]="editnoteForm.invalid" class="btn btn-sm btn-primary"><i
-                                class="fa fa-dot-circle-o"></i> Submit</button>
-                        <button type="reset" class="btn btn-sm btn-danger" (click)="cancel()"><i class="fa fa-ban"></i>
-                            Cancel</button>
+                        <button type="button" tooltip="Updates the Edited Note" [disabled]="editnoteForm.invalid"
+                                (click)="openeditModal()" class="btn btn-sm btn-primary"><i
+                          class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                      <button type="reset" class="btn btn-sm btn-danger" tooltip="Back to Notes" (click)="cancel()"><i
+                        class="fa fa-ban"></i>
+                        Cancel
+                      </button>
                     </div>
                 </form>
             </div>
-            <!-- END card-->
+          <!-- END card-->
         </div>
     </div>
 </div>
+<ngx-smart-modal [dismissable]="false" #editModal identifier="editModal">
+  <!--    <diva class="panel-dialog">-->
+  <!--      <div class="panel-content">-->
+  <!--        <div class="panel-header">-->
+  <!--          <h4 class="panel-title">Edit a Note</h4>-->
+  <!--          <div *ngIf="nochange" class="alert alert-info fade show">-->
+  <!--            <strong>Hey!</strong>-->
+  <!--            No Changes Detected!-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div *ngIf="nochange" class="alert alert-info fade show">-->
+  <!--          <strong>Hey!</strong>-->
+  <!--          No Changes Detected!-->
+  <!--        </div>-->
+  <!--        <div class="panel-body">-->
+  <!--          <div class="alert alert-danger m-b-0">-->
+  <!--            <h5><i class="fa fa-times-circle"></i> Previous Comment</h5>-->
+  <!--            <p>{{notes}}</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div class="panel-body">-->
+  <!--          <div class="alert alert-success m-b-0">-->
+  <!--            <h5><i class="fa fa-check-circle"></i> New Comment</h5>-->
+  <!--            <p>{{newnotes}}</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <divaa class="panel-footer">-->
+  <!--          <button  class="btn btn-info" (click)="closeeditModal()">Back</button>-->
+  <!--          <button [disabled]="nochange" type="submit" (click)="onSubmit()" class="btn btn-success" >Submit<i class="fa fa-check-circle"></i></button>-->
+  <!--        </divaa>-->
+  <!--      </div>-->
+  <!--    </diva>-->
+
+
+  <div *ngIf="nochange" class="alert alert-danger fade show">
+    <strong>Hey!</strong>
+    No Changes Detected!
+  </div>
+
+  <div class="card text-black-50 bg-gray-lighter">
+    <div class="card-body">
+      <h5 class="card-title">Previous Comment</h5>
+      <p class="card-text">{{notes}}</p>
+    </div>
+  </div>
+
+  <div class="card text-black-50 bg-gray-lighter">
+    <div class="card-body">
+      <h5 class="card-title">New Edited Comment</h5>
+      <p class="card-text"><b>{{newnotes}}</b></p>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-info" (click)="closeeditModal()">Back</button>
+    <button [disabled]="nochange" title="Kindly Edit a note" type="submit" (click)="onSubmit()" class="btn btn-success">
+      Submit<i class="fa fa-check-circle"></i></button>
+  </div>
+</ngx-smart-modal>

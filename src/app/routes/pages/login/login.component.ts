@@ -96,19 +96,19 @@ export class LoginComponent implements OnInit {
             if (user.length > 0) {
                 // store user details and basic auth credentials in local storage
                 // to keep user logged in between page refreshes
-                // get user permissions
+              // get user permission
                 this.ecolService.getpermissions(user[0].ROLE).subscribe(permission => {
-                    // console.log(permission);
-                    user.authdata = window.btoa(username + ':' + password);
-                    localStorage.setItem('currentUser', JSON.stringify(user[0]));
-                    localStorage.setItem('userpermission', JSON.stringify(permission));
-                    localStorage.setItem('profile', '1');
+                  // console.log(permission);
+                  user.authdata = window.btoa(username + ':' + password);
+                  localStorage.setItem('currentUser', JSON.stringify(user[0]));
+                  localStorage.setItem('userpermission', JSON.stringify(permission));
+                  localStorage.setItem('profile', '1');
 
-                    sessionStorage.setItem('currentUser', JSON.stringify(user[0]));
-                    sessionStorage.setItem('userpermission', JSON.stringify(permission));
-                    sessionStorage.setItem('profile', '1');
-                    // this.router.navigate([this.returnUrl]);
-                    this.router.navigate(['/home']);
+                  sessionStorage.setItem('currentUser', JSON.stringify(user[0]));
+                  sessionStorage.setItem('userpermission', JSON.stringify(permission));
+                  sessionStorage.setItem('profile', '1');
+                  this.router.navigate([this.returnUrl]); // prevents page reload
+                  // this.router.navigate(['/home']);
                 });
                 //
             } else {

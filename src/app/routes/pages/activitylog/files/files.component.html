@@ -1,98 +1,44 @@
-<ngb-tabset type="pills">
-  <!--  tab starts-->
-  <ngb-tab >
-    <ng-template ngbTabTitle>Uploaded files <span class="badge badge-primary">{{files?.length}}</span></ng-template>
-    <ng-template ngbTabContent>
-      <div class="card">
-      <!-- START table-responsive-->
-      <div  class="table-responsive">
-        <table  class="table table-hover table-bordered table-striped">
-          <thead>
-          <tr>
-            <th>custnumber#</th>
-            <th>FileName</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Owner</th>
-            <th>Date</th>
-            <th class="text-center">Download</th>
-          </tr>
-          </thead>
-          <tbody >
-          <tr  *ngFor="let d of files">
-            <td>{{d.custnumber}}</td>
-            <td>{{d.filename}}</td>
-            <td>{{d.userdesctype}}</td>
-            <td>{{d.docdesc}}</td>
-            <td>{{d.colofficer}}</td>
-            <td>{{d.stagedate}}</td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-sm" (click)="downloadFile(d.destpath, d.filename)">
-                <i class="fa fa-download"></i>
-              </button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <!--        end of table responsible-->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Processing Notes Upload...</p>
+</ngx-spinner>
 
-        <div class="container">
-          <div class="row">
-            <div class="col text-center">
-              <button disabled="" *ngIf="!files?.length" class="btn btn-danger">!! No Uploaded Files Available !!</button>
-            </div>
-          </div>
-        </div>
-
-
-<!--        start of no data table-->
-
-
-      </div>
-      </div>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab>
-    <ng-template ngbTabTitle><b>Upload Files</b> </ng-template>
-    <ng-template ngbTabContent>
-      <!-- START card-->
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Bulk notes from xlsx file </h2>
+    <div id="accordion">
       <div class="card">
         <div id="collapseupload" class="collapse show" data-parent="#accordion">
           <div class="card-body">
-            <div class="form-group row">
-              <label class="col-xl-4 col-form-label">Document Type</label>
-              <div class="col-xl-8">
-                <ng-select id="userdesctype" name="userdesctype" #userdesctype="ngModel" [ngModel]="model.userdesctype">
-                  <ng-option *ngFor="let f of filetype" [value]="f.filetype" >{{f.filetype}}</ng-option>
-                </ng-select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-xl-4 col-form-label">File Description</label>
-              <div class="col-xl-8">
-              <textarea class="form-control" name="filedesc" id="filedesc" [(ngModel)]="model.filedesc"
-                        #filedesc="ngModel" rows="2"></textarea>
-              </div>
-            </div>
-
             <div class="row">
               <div class="col-lg-3">
                 <div class="card">
+                  <div>
+                    <button class="btn btn-outline-success btn-sm">
+                      <i class="fa fa-download"> template</i>
+                    </button>
+                  </div>
                   <div class="card-body">
                     <h4 class="page-header mt0">Select files</h4>
                     <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
                          [uploader]="uploader" class="box-placeholder my-drop-zone">
-                      Drop files here
+                      Drop xlxs file here
                     </div>
+                    <!--<div ng2FileDrop [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}"
+                      (fileOver)="fileOverAnother($event)" [uploader]="uploader" class="box-placeholder my-drop-zone">
+                      Another drop zone
+                    </div>-->
                     <p class="text-bold">Upload options</p>
-                    <label for="file1" class="file-upload">
-                      <button class="btn btn-secondary btn-block">Select Multiple</button>
+                    <!--<label for="file1" class="file-upload">
+                      <button class="btn btn-secondary btn-block">Multiple</button>
                       <input id="file1" type="file" ng2FileSelect [uploader]="uploader" multiple />
+                    </label>-->
+
+                    <label for="avatar" class="file-upload">
+                      <button class="btn btn-secondary btn-block">Single</button>
+                      <input (change)="onFileSelect($event)" type="file" name="avatar" id="avatar" type="file"
+                             ng2FileSelect [uploader]="uploader"/>
                     </label>
-                    <label for="file2" class="file-upload">
-                      <button class="btn btn-secondary btn-block">Select Single</button>
-                      <input id="file2" type="file" ng2FileSelect [uploader]="uploader" />
-                    </label>
+
                   </div>
                 </div>
               </div>
@@ -128,10 +74,12 @@
                           <span *ngIf="item.isError"><i class="fas fa-times"></i></span>
                         </td>
                         <td nowrap>
-                          <button type="button" class="btn btn-info btn-xs" (click)="item.upload()"
+
+                          <button type="submit" class="btn btn-info btn-xs"
                                   [disabled]="item.isReady || item.isUploading || item.isSuccess">
                             <span class="fa icon-cloud-upload mr"></span> Upload
                           </button>
+
                           <button type="button" class="btn btn-warning btn-xs" (click)="item.cancel()"
                                   [disabled]="!item.isUploading">
                             <span class="icon-close mr"></span> Cancel
@@ -148,25 +96,25 @@
                 <div class="card">
                   <div class="card-body">
                     <div>
-                      <div>
+                      <!-- <div>
                         Queue progress:
                         <div class="progress">
                           <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
                           </div>
                         </div>
-                      </div>
-                      <button type="button" class="btn btn-info btn-s" (click)="uploader.uploadAll()"
-                              [disabled]="!uploader.getNotUploadedItems().length">
+                      </div> -->
+                      <!-- <button type="button" class="btn btn-info btn-s" (click)="uploader.uploadAll()"
+                        [disabled]="!uploader.getNotUploadedItems().length">
                         <span class="fa icon-cloud-upload mr"></span> Upload all
-                      </button>
-                      <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()"
-                              [disabled]="!uploader.isUploading">
+                      </button> -->
+                      <!-- <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()"
+                        [disabled]="!uploader.isUploading">
                         <span class="icon-close mr"></span> Cancel all
-                      </button>
-                      <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()"
-                              [disabled]="!uploader.queue.length">
+                      </button> -->
+                      <!-- <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()"
+                        [disabled]="!uploader.queue.length">
                         <span class="icon-trash mr"></span> Remove all
-                      </button>
+                      </button> -->
                     </div>
                   </div>
                 </div>
@@ -175,8 +123,6 @@
           </div>
         </div>
       </div>
-      <!-- END card-->
-    </ng-template>
-  </ngb-tab>
-
-</ngb-tabset>
+    </div>
+  </form>
+</div>

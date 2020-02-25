@@ -17,6 +17,7 @@ const PARAMS = new HttpParams({
 
 @Injectable()
 export class EcollectService {
+  private rows: any;
   constructor(private http: HttpClient) {
   }
 
@@ -33,35 +34,26 @@ export class EcollectService {
 
   }
 
-  search2(term: string) {
-    if (term === '') {
-      return of([]);
-    }
-
-    return this.http
-      .get(WIKI_URL, {params: PARAMS.set('searchtext', term)})
-
-      .pipe(map(response => response[0]));
-
-
-  }
 
 }
 
 
 @Component({
     selector: 'app-newcase',
-    templateUrl: './newcase.component.html',
-    providers: [EcollectService],
-    styleUrls: ['./newcase.component.scss']
+  templateUrl: './newcase.component.html',
+  providers: [EcollectService],
+  styleUrls: ['./newcase.component.scss']
 })
-export class NewcaseComponent  {
+export class NewcaseComponent {
 
-  constructor(private _service: EcollectService) {}
-@ViewChild ('f') signupForm: NgForm;
+  constructor(private _service: EcollectService) {
+  }
+
+  @ViewChild('f') signupForm: NgForm;
   searching = false;
   searchFailed = false;
-  rows: string;
+  rows: [];
+  model: any;
   CLIENT_NAME: any;
   custnumber: any;
   CUSTNUMBER: any;
@@ -181,7 +173,7 @@ export class NewcaseComponent  {
 
   onSubmitted(event: any) {
     this.submitted = true;
-
+    console.log();
     this.customernumber = event.target.custnumber.value;
     this.accountnumber = event.target.accountnumber.value;
     this.customername = event.target.customername.value;

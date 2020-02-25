@@ -8,6 +8,8 @@ export const environment = {
   api: 'http://localhost:3000',
   mongo: 'http://localhost:8001',
   nodeapi: 'http://localhost:6001/nodeapi',
+  bulknotes: 'http://localhost/upload',
+  filesuploads: 'http://localhost/upload',
   letters_api: 'http://localhost:8004/docx/',
   letters_path: 'd:\\demands\\',
   uploadurl: 'http://localhost:4000',

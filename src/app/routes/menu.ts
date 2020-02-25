@@ -394,25 +394,32 @@ const Allocations = {
             link: '/allocations/remedial'
         },
         {
-            text: 'Credit cards',
-            link: '/allocations/creditcards'
+          text: 'Credit cards',
+          link: '/allocations/creditcards'
         },
-        {
-            text: 'Pre Delq',
-            link: '/allocations/predelq'
-        }
+      {
+        text: 'Pre Delq',
+        link: '/allocations/predelq'
+      }
     ]
 };
 
+
+const Insurance = {
+  text: 'Insurance Companies',
+  link: '/configurations/insurance',
+  icon: 'icon-people'
+};
+
 const Predelq = {
-    text: 'Paying Watch',
-    link: '/payingwatch',
-    icon: 'icon-wallet',
-    submenu: [
-        {
-            text: 'No Credit buildup',
-            link: '/watch/nocredit'
-        },
+  text: 'Paying Watch',
+  link: '/payingwatch',
+  icon: 'icon-wallet',
+  submenu: [
+    {
+      text: 'No Credit buildup',
+      link: '/watch/nocredit'
+    },
         {
             text: 'Credit buildup',
             link: '/watch/creditbuildup'
@@ -549,20 +556,21 @@ const teamleader_menu = [
     Work,
     Work_cc,
     // Predelq,
-    mcoopcash,
-    serviceproviders,
-    headingLetters,
-    Letters,
-    headingReports,
-    Dashboard,
-    Reports,
-    headingConfigurations,
-    Demandletters,
-    Allocations,
-    SMS,
-    AccountPlans,
-    headingDocumentations,
-    Manuals
+  mcoopcash,
+  serviceproviders,
+  headingLetters,
+  Letters,
+  headingReports,
+  Dashboard,
+  Reports,
+  headingConfigurations,
+  Demandletters,
+  Allocations,
+  Insurance,
+  SMS,
+  AccountPlans,
+  headingDocumentations,
+  Manuals
 ];
 // console.log('menu role==>', currentUser.role);
 if (currentUser !== null) {

@@ -25,7 +25,8 @@ const ADLOGIN = environment.adlogin;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  username: string;
+  username: string | null;
+  USERNAME: any;
   vallForm: FormGroup;
   loading = false;
   submitted = false;
@@ -34,8 +35,13 @@ export class AppComponent implements OnInit {
   data: any;
   code: any;
 
-  @HostBinding('class.layout-fixed') get isFixed() { return this.settings.getLayoutSetting('isFixed'); }
-  @HostBinding('class.aside-collapsed') get isCollapsed() { return this.settings.getLayoutSetting('isCollapsed'); }
+  @HostBinding('class.layout-fixed') get isFixed() {
+    return this.settings.getLayoutSetting('isFixed');
+  }
+
+  @HostBinding('class.aside-collapsed') get isCollapsed() {
+    return this.settings.getLayoutSetting('isCollapsed');
+  }
   @HostBinding('class.layout-boxed') get isBoxed() { return this.settings.getLayoutSetting('isBoxed'); }
   @HostBinding('class.layout-fs') get useFullLayout() { return this.settings.getLayoutSetting('useFullLayout'); }
   @HostBinding('class.hidden-footer') get hiddenFooter() { return this.settings.getLayoutSetting('hiddenFooter'); }
@@ -53,10 +59,10 @@ export class AppComponent implements OnInit {
               fb: FormBuilder,
               public router: Router,
               public ngxSmartModalService: NgxSmartModalService,
-    private _loadingBar: SlimLoadingBarService,
-    private _router: Router,
-    public ecolService: EcolService,
-    private bnIdle: BnNgIdleService) {
+              private _loadingBar: SlimLoadingBarService,
+              private _router: Router,
+              public ecolService: EcolService,
+              private bnIdle: BnNgIdleService) {
     this._router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
       this.vallForm = fb.group({
@@ -68,12 +74,15 @@ export class AppComponent implements OnInit {
     });
 
     // idle logout
-    this.bnIdle.startWatching(10).subscribe((res) => {
+    this.bnIdle.startWatching(3600).subscribe((res) => {
       if (res && !localStorage.getItem('currentUser')) {
         this.newsession();
         this.closetimeoutModal();
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.username = currentUser.USERNAME;
+        // const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        // if (currentUser === 'null') {
+        //   this.username = 'coop';
+        // }
+        // this.username = currentUser.USERNAME;
         // this.ecolService.logout();
 
       } else if (res && localStorage.getItem('currentUser')) {
@@ -142,12 +151,15 @@ export class AppComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     this.ecolService.ifLogged();
     this.ecolService.ifclosed();
-    const currentUser = JSON.parse(localStorage.getItem('currentUser')); // to get username in localstorage
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')); // to get username in localstorage..
     this.username = currentUser.USERNAME;
+    console.log(this.username);
 
     document.addEventListener('click', e => {
       const target = e.target as HTMLElement;
-      if (target.tagName === 'A') { e.preventDefault(); }
+      if (target.tagName === 'A') {
+        e.preventDefault();
+      }
     });
   }
 

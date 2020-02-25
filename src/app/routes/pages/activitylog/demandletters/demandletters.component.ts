@@ -506,7 +506,7 @@ export class DemandLettersComponent implements OnInit {
     this.popinfoToast('Letter Queued to be sent');
     this.ecolService.generateLetter(letter).subscribe(uploaddata => {
       if (uploaddata.result === 'success') {
-        
+
         this.popsuccessToast('Letter generated and queued to be sent');
         // save to history
         this.demandhisdetails = {
@@ -739,7 +739,6 @@ export class DemandLettersComponent implements OnInit {
     });
   }  // end generateletter
 
-  
 
   sendsms(smsdata) {
     this.ecolService.sendsms(smsdata).subscribe(result => {

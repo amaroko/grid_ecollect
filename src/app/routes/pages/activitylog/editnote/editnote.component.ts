@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { EcolService } from '../../../../services/ecol.service';
 import swal from 'sweetalert2';
 import { environment } from '../../../../../environments/environment';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NgxSmartModalService} from 'ngx-smart-modal';
 
 const URL = environment.valor;
 
@@ -23,11 +24,16 @@ export class EditnoteComponent implements OnInit {
   noteid: string;
   editnoteForm: FormGroup;
   submitted = false;
+  notes: any;
+  newnotes: any;
+  nochange = true;
+  noteswordslength: any = {};
 
   constructor(public settings: SettingsService,
-    private route: ActivatedRoute,
-    private ecolService: EcolService,
-    private formBuilder: FormBuilder) {
+              private route: ActivatedRoute,
+              private ecolService: EcolService,
+              public ngxSmartModalService: NgxSmartModalService,
+              private formBuilder: FormBuilder) {
     //
   }
 
@@ -84,8 +90,9 @@ export class EditnoteComponent implements OnInit {
       noteimp: this.note.noteimp,
       notedate: this.note.notedate,
     };
+    this.closeeditModal();
     this.ecolService.updatenote(body).subscribe(data => {
-      swal('Successful!', 'Note updated!', 'success').then(function() {
+      swal('Successful!', 'Note updated!', 'success').then(function () {
         window.history.back();
       });
       //
@@ -109,18 +116,41 @@ export class EditnoteComponent implements OnInit {
 
   buildForm() {
     // get static data
+
     this.editnoteForm = this.formBuilder.group({
       id: [{ value: this.note.id, disabled: true }],
       accnumber: [{ value: this.note.accnumber, disabled: true }],
       custnumber: [{ value: this.note.custnumber, disabled: true }],
       notemade: [{ value: this.note.notemade, disabled: false }],
-      notedate: [{ value: this.note.notedate, disabled: true }],
-      owner: [{ value: this.note.owner, disabled: true }]
+      notedate: [{value: this.note.notedate, disabled: true}],
+      owner: [{value: this.note.owner, disabled: true}]
     });
+
   }
 
-  cancel () {
+  cancel() {
     window.history.back();
+  }
+
+  openeditModal() {
+    // open modal
+    this.ngxSmartModalService.getModal('editModal').open();
+    this.notes = this.note.notemade;
+    this.newnotes = this.f.notemade.value;
+    if (this.notes === this.newnotes) {
+      console.log('You havent changed a thing');
+      this.nochange = true;
+
+
+    } else {
+      this.nochange = false;
+      console.log('good,you\'ve changed ');
+    }
+  }
+
+  closeeditModal() {
+    // close modal
+    this.ngxSmartModalService.getModal('editModal').close();
   }
 
 }

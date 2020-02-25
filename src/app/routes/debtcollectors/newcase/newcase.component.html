@@ -29,10 +29,15 @@
           <div class="col-md-9">
             <div class="col-md-12">
               <label for="typeahead-http"></label>
-              <input [(ngModel)]="rows" [class.is-invalid]="searchFailed" [inputFormatter]="inputFormatBandListValue" [ngbTypeahead]="search" [resultFormatter]="resultFormatBandListValue" class="form-control" id="typeahead-http"
-                                                          name="Search"  placeholder="Search" type="text" value="search" />
-<!--              <small *ngIf="searching" class="form-text text-muted">searching...</small>-->
+              <input [(ngModel)]="model" [class.is-invalid]="searchFailed" [inputFormatter]="inputFormatBandListValue"
+                     [ngbTypeahead]="search" [resultFormatter]="resultFormatBandListValue" class="form-control"
+                     id="typeahead-http"
+                     name="Search" placeholder="Search" type="text" value="search"/>
+              <!--              <small *ngIf="searching" class="form-text text-muted">searching...</small>-->
               <img *ngIf="searching" alt="Loading Icon" src="assets/img/user/loading.gif">
+              <div>
+                <p>{{model | json}}</p>
+              </div>
               <div *ngIf="searchFailed" class="invalid-feedback">Sorry, suggestions could not be loaded.</div>
             </div>
           </div>
@@ -44,7 +49,8 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input  #customernumber="ngModel"  [(ngModel)]="rows"  [inputFormatter]="inputFormatBandListValue2" [ngbTypeahead]="search" class="form-control" id="custnumber" name="custnumber" required="" type="text">
+              <input #customernumber="ngModel" [(ngModel)]="model" value="{{model.CUSTNUMBER}}" class="form-control"
+                     id="custnumber" name="custnumber" required="" type="text">
             </div>
             <p *ngIf="!customernumber.valid && customernumber.touched" class="text-warning"> Please Enter Something</p>
           </div>
@@ -53,7 +59,8 @@
           </div>
           <div class="col-md-3">
             <div class="col-md-12">
-              <input [(ngModel)]="rows" [inputFormatter]="inputFormatBandListValue4" [ngbTypeahead]  class="form-control" id="accountnumber" name="accountnumber" type="text">
+              <input [(ngModel)]="model.accnumber"
+                     #accnumber="ngModel" class="form-control" id="accountnumber" name="accountnumber" type="text">
             </div>
           </div>
         </div>
